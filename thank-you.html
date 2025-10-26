@@ -4,75 +4,14 @@ title: Thank You
 permalink: /thank-you/
 ---
 
-<div class="thank-you-page">
-    <div class="thank-you-content">
-        <i class="fas fa-check-circle success-icon"></i>
-        <h1>Message Sent Successfully!</h1>
-        <p>Thank you for reaching out. I'll get back to you within 24-48 hours.</p>
-        <a href="/" class="btn-primary">Back to Home</a>
-        <a href="/blog/" class="btn-secondary">Read My Blog</a>
+<div style="text-align: center; padding: 4rem 2rem; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <div style="max-width: 600px;">
+        <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--color-primary); margin-bottom: 1.5rem;"></i>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Message Sent Successfully!</h1>
+        <p style="font-size: 1.125rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            Thank you for reaching out. I'll get back to you within 24-48 hours.
+        </p>
+        <a href="/" style="display: inline-block; padding: 0.75rem 2rem; background: var(--color-primary); color: white; text-decoration: none; border-radius: 6px; margin: 0.5rem;">Back to Home</a>
+        <a href="/blog/" style="display: inline-block; padding: 0.75rem 2rem; background: var(--bg-tertiary); color: var(--text-primary); text-decoration: none; border-radius: 6px; margin: 0.5rem; border: 1px solid var(--border-color);">Read Blog</a>
     </div>
 </div>
-
-<style>
-.thank-you-page {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.thank-you-content {
-    max-width: 600px;
-}
-
-.success-icon {
-    font-size: 5rem;
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    animation: scaleIn 0.5s ease;
-}
-
-@keyframes scaleIn {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-}
-
-.thank-you-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.thank-you-content p {
-    font-size: 1.125rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-}
-
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.2s;
-    margin: 0.5rem;
-}
-
-.btn-primary {
-    background: var(--color-primary);
-    color: white;
-}
-
-.btn-secondary {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
-
-.btn-primary:hover, .btn-secondary:hover {
-    transform: translateY(-2px);
-}
-</style>

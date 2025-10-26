@@ -12,23 +12,12 @@ permalink: /contact/
 
     <div class="contact-container">
         <div class="contact-form-section">
-            <!-- Netlify Form with all features -->
+            <!-- NETLIFY FORM - CORRECT FORMAT -->
             <form name="contact" 
                   method="POST" 
-                  data-netlify="true" 
-                  data-netlify-honeypot="bot-field"
-                  action="/thank-you/"
+                  netlify 
+                  netlify-honeypot="bot-field"
                   class="contact-form">
-                
-                <!-- Hidden form name for Netlify -->
-                <input type="hidden" name="form-name" value="contact">
-                
-                <!-- Honeypot spam protection (hidden field) -->
-                <p style="display:none;">
-                    <label>Don't fill this out if you're human: 
-                        <input name="bot-field" tabindex="-1" autocomplete="off">
-                    </label>
-                </p>
                 
                 <!-- Name Field -->
                 <div class="form-group">
@@ -37,8 +26,7 @@ permalink: /contact/
                            id="name" 
                            name="name" 
                            placeholder="Your Name" 
-                           required
-                           autocomplete="name">
+                           required>
                 </div>
                 
                 <!-- Email Field -->
@@ -48,8 +36,7 @@ permalink: /contact/
                            id="email" 
                            name="email" 
                            placeholder="your.email@example.com" 
-                           required
-                           autocomplete="email">
+                           required>
                 </div>
                 
                 <!-- Subject Field -->
@@ -71,9 +58,12 @@ permalink: /contact/
                               required></textarea>
                 </div>
                 
-                <!-- Optional: reCAPTCHA -->
-                <!-- Uncomment when you add reCAPTCHA -->
-                <!-- <div data-netlify-recaptcha="true"></div> -->
+                <!-- Hidden honeypot for spam protection -->
+                <p hidden>
+                    <label>
+                        Don't fill this out: <input name="bot-field" />
+                    </label>
+                </p>
                 
                 <!-- Submit Button -->
                 <button type="submit" class="submit-btn">
@@ -94,13 +84,13 @@ permalink: /contact/
             <div class="contact-card">
                 <i class="fab fa-linkedin"></i>
                 <h3>LinkedIn</h3>
-                <a href="https://linkedin.com/in/varun-bhandari5" target="_blank" rel="noopener">Connect with me</a>
+                <a href="https://linkedin.com/in/varun-bhandari5" target="_blank" rel="noopener">Connect</a>
             </div>
             
             <div class="contact-card">
                 <i class="fab fa-github"></i>
                 <h3>GitHub</h3>
-                <a href="https://github.com/z-varun" target="_blank" rel="noopener">View my code</a>
+                <a href="https://github.com/z-varun" target="_blank" rel="noopener">View Code</a>
             </div>
         </div>
     </div>
