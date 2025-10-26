@@ -1,3 +1,105 @@
+/* Search Bar Styles */
+.filter-search-container {
+    max-width: 600px;
+    margin: 2rem auto 1.5rem;
+    padding: 0 2rem;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}
+
+.search-icon {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.tag-search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    padding: 0.25rem 0;
+}
+
+.tag-search-input::placeholder {
+    color: var(--text-muted);
+}
+
+.clear-search-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+}
+
+.clear-search-btn:hover {
+    color: var(--color-danger);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.search-results-count {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.search-results-count strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Highlight matched text in search results */
+.highlight-match {
+    background-color: rgba(0, 217, 255, 0.2);
+    color: var(--color-primary);
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+}
+
+/* Hide filters when searching */
+.blog-filters.searching .filter-btn:not(.active),
+.blog-filters.searching .filter-dropdown {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .filter-search-container {
+        padding: 0 1rem;
+    }
+    
+    .tag-search-input {
+        font-size: 0.95rem;
+    }
+}
+
 /* Blog Page Styles */
 
 /* Blog Filters Styling */

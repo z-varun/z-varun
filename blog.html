@@ -12,6 +12,26 @@ custom_js: blog
         <p class="page-subtitle">Exploring DevSecOps, Cloud Security, and Modern Security Engineering</p>
     </header>
 
+    <!-- Search Bar for Tags -->
+    <div class="filter-search-container">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input
+                type="text"
+                id="tagSearchInput"
+                class="tag-search-input"
+                placeholder="Search tags or posts..."
+                autocomplete="off"
+            >
+            <button class="clear-search-btn" id="clearSearchBtn" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-results-count" id="searchResultsCount" style="display: none;">
+            <span id="resultsCountText"></span>
+        </div>
+    </div>
+
     <!-- Improved Filters with Counts and Dropdown -->
     <div class="blog-filters">
         <!-- All Posts Button -->
@@ -88,7 +108,10 @@ custom_js: blog
         {% if site.posts.size > 0 %}
         <div class="posts-list">
             {% for post in site.posts %}
-            <article class="blog-post-item" data-tags="{{ post.tags | join: ',' }}">
+            <article class="blog-post-item"
+                     data-tags="{{ post.tags | join: ',' }}"
+                     data-title="{{ post.title | downcase }}"
+                     data-excerpt="{{ post.excerpt | strip_html | downcase }}">
                 <div class="post-date-badge">
                     <span class="month">{{ post.date | date: "%b" }}</span>
                     <span class="day">{{ post.date | date: "%d" }}</span>
@@ -103,7 +126,7 @@ custom_js: blog
                     {% if post.tags %}
                     <div class="post-tags">
                         {% for tag in post.tags %}
-                        <span class="tag">{{ tag }}</span>
+                        <span class="tag" data-tag="{{ tag }}">{{ tag }}</span>
                         {% endfor %}
                     </div>
                     {% endif %}
