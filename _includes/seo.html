@@ -1,7 +1,7 @@
 <!-- SEO Meta Tags -->
 <meta name="description" content="{{ page.description | default: site.description }}">
 <meta name="keywords" content="DevSecOps, Cloud Security, Kubernetes Security, CI/CD Security, {{ page.tags | join: ', ' }}">
-<meta name="author" content="{{ site.author }}">
+<meta name="author" content="{{ site.author.name }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ page.layout | default: 'website' }}">
@@ -25,7 +25,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "{{ site.author }}",
+  "name": "{{ site.author.name }}",
   "url": "{{ site.url }}",
   "jobTitle": "Senior Security Engineer",
   "description": "{{ site.description }}",

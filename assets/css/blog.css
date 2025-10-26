@@ -353,3 +353,47 @@
         justify-content: center;
     }
 }
+
+/* External link icon */
+.external-icon {
+    font-size: 0.75em;
+    margin-left: 0.25rem;
+    opacity: 0.7;
+    color: var(--color-primary);
+}
+
+/* Platform badges */
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.platform-medium {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: #00ab6c;
+    color: #00ab6c;
+}
+
+.platform-substack {
+    background-color: rgba(255, 106, 0, 0.1);
+    border-color: #ff6a00;
+    color: #ff6a00;
+}
+
+.platform-dev {
+    background-color: rgba(15, 23, 42, 0.5);
+    border-color: #3b49df;
+    color: #3b49df;
+}
+
+/* Hover effect for external links */
+.blog-post-item a[target="_blank"]:hover .external-icon {
+    transform: translateX(3px) translateY(-3px);
+    transition: transform 0.2s ease;
+}

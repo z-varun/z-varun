@@ -5,14 +5,13 @@
 title: "Varun Bhandari | Senior Security Engineer"
 description: "Senior Security Engineer with 9+ years of DevSecOps, SRE, and Cloud Security experience. Specializing in Kubernetes, multi-cloud architecture, and secure CI/CD pipelines."
 keywords: "DevSecOps Engineer, Cloud Security Architecture, Kubernetes Security, Multi-Cloud Infrastructure, CI/CD Pipeline Security, Infrastructure as Code"
-author: "Varun Bhandari"
 email: varun@cswithvarun.com
 url: "https://cswithvarun.com"
 baseurl: ""
 
 # Build settings
 markdown: kramdown
-theme: null  # Using custom theme
+theme: null
 
 plugins:
   - jekyll-feed
@@ -26,20 +25,16 @@ feed:
 # Permalink structure for blog posts
 permalink: /blog/:year/:month/:day/:title/
 
-# Social links
-github_username: z-varun
-linkedin_username: varun-bhandari5
-
-# Author details (for jekyll-seo-tag)
+# Author details (for jekyll-seo-tag and posts)
 author:
   name: "Varun Bhandari"
   bio: "Senior Security Engineer | 9+ Years DevSecOps | Building secure, resilient cloud infrastructure"
   location: "India"
-  
-# Twitter (optional - uncomment if you have)
-# twitter:
-#   username: your_twitter_handle
-#   card: summary_large_image
+  email: varun@cswithvarun.com
+
+# Social links
+github_username: z-varun
+linkedin_username: varun-bhandari5
 
 # Site navigation
 navigation:
@@ -58,7 +53,7 @@ navigation:
 sass:
   style: compressed
 
-# Exclude from processing (SINGLE CONSOLIDATED BLOCK)
+# Exclude from processing
 exclude:
   - README.md
   - Gemfile
@@ -70,20 +65,14 @@ exclude:
   - vendor/ruby/
   - .gitignore
   - .git
-  - package.json
-  - package-lock.json
 
-# Analytics (uncomment when ready)
-# google_analytics: G-XXXXXXXXXX
-
-# Defaults for better SEO
+# Defaults for posts and pages
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-      author: "Varun Bhandari"
   - scope:
       path: ""
       type: "pages"

@@ -10,7 +10,7 @@ layout: default
                 <i class="far fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}
             </time>
             <span class="post-author">
-                <i class="far fa-user"></i> {{ site.author }}
+                <i class="far fa-user"></i> {{ site.author.name }}
             </span>
             {% include reading-time.html %}
             {% if page.read_time %}
@@ -45,7 +45,7 @@ layout: default
         
         <div class="author-bio">
             <h4>About the Author</h4>
-            <p>{{ site.author }} is a Senior Security Engineer with 8+ years of experience in DevSecOps, SRE, and Cloud Security. Passionate about building resilient, secure systems that ensure compliance and reduce risk.</p>
+            <p>{{ site.author.name }} is a Senior Security Engineer with 8+ years of experience in DevSecOps, SRE, and Cloud Security. Passionate about building resilient, secure systems that ensure compliance and reduce risk.</p>
         </div>
     </footer>
 </article>

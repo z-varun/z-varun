@@ -8,4 +8,3 @@ gem "jekyll"
 gem "github-pages", group: :jekyll_plugins
 gem 'jekyll-feed'
 gem 'faraday-retry'
-gem 'jekyll-compress-html'
