@@ -1,0 +1,112 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">Securing the Future: <span class="highlight">DevSecOps & Cloud Resilience</span></h1>
+            <p class="hero-subtitle">Senior Security Engineer | 8+ Years of DevSecOps, SRE, and Cloud Security Expertise</p>
+            <p class="hero-description">
+                Building resilient, secure systems that ensure compliance and reduce risk across cloud infrastructure, CI/CD pipelines, and distributed architectures.
+            </p>
+            <div class="hero-cta">
+                <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">
+                    <i class="fas fa-newspaper"></i> View Latest Blogs
+                </a>
+                <a href="{{ '/contact/' | relative_url }}" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="skills-section">
+    <div class="container">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Kubernetes Security</h3>
+                <p>Container orchestration hardening, RBAC, Pod Security Standards, and runtime security monitoring</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <h3>CI/CD Pipeline Security</h3>
+                <p>Automated security gates, SAST/DAST integration, artifact signing, and supply chain security</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-file-code"></i>
+                </div>
+                <h3>Infrastructure as Code (IaC)</h3>
+                <p>Terraform security, CloudFormation hardening, policy enforcement, and drift detection</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Threat Modeling</h3>
+                <p>STRIDE methodology, attack surface analysis, risk assessment, and security architecture reviews</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Forensics</h3>
+                <p>AWS/Azure/GCP incident response, log analysis, threat hunting, and security monitoring</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Observability</h3>
+                <p>Security metrics, SIEM integration, anomaly detection, and compliance monitoring</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3>Vulnerability Management</h3>
+                <p>CVE assessment, patch management, vulnerability scanning, and remediation tracking</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recent-posts-section">
+    <div class="container">
+        <h2 class="section-title">Latest from the Blog</h2>
+        <div class="posts-grid">
+            {% for post in site.posts limit:3 %}
+            <article class="post-card">
+                <div class="post-card-content">
+                    <time class="post-date">{{ post.date | date: "%b %d, %Y" }}</time>
+                    <h3 class="post-card-title">
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </h3>
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                    <a href="{{ post.url | relative_url }}" class="read-more">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="view-all-posts">
+            <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">View All Posts</a>
+        </div>
+    </div>
+</section>
