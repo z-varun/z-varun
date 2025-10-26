@@ -1,0 +1,33 @@
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+
+[build.environment]
+  JEKYLL_ENV = "production"
+  RUBY_VERSION = "3.1.0"
+
+[[redirects]]
+  from = "https://z-varun.github.io/*"
+  to = "https://cswithvarun.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://cswithvarun.com/*"
+  to = "https://cswithvarun.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

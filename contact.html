@@ -1,68 +1,106 @@
 ---
 layout: page
-title: Contact Me
-subtitle: Let's collaborate on building secure, resilient systems
+title: Contact
 permalink: /contact/
 ---
 
 <div class="contact-page">
-    <div class="contact-intro">
-        <p>Whether you're looking to discuss security architecture, collaborate on open-source projects, or explore opportunities—I'd love to hear from you. Fill out the form below or connect with me on social media.</p>
-    </div>
-    
-    <div class="contact-content">
+    <section class="contact-intro">
+        <h1>Get In Touch</h1>
+        <p>Have a question or want to work together? I'd love to hear from you.</p>
+    </section>
+
+    <div class="contact-container">
         <div class="contact-form-section">
-            <h2>Send a Message</h2>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+            <!-- Netlify Form with all features -->
+            <form name="contact" 
+                  method="POST" 
+                  data-netlify="true" 
+                  data-netlify-honeypot="bot-field"
+                  action="/thank-you/"
+                  class="contact-form">
+                
+                <!-- Hidden form name for Netlify -->
+                <input type="hidden" name="form-name" value="contact">
+                
+                <!-- Honeypot spam protection (hidden field) -->
+                <p style="display:none;">
+                    <label>Don't fill this out if you're human: 
+                        <input name="bot-field" tabindex="-1" autocomplete="off">
+                    </label>
+                </p>
+                
+                <!-- Name Field -->
                 <div class="form-group">
-                    <label for="name">Full Name <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           placeholder="Your Name" 
+                           required
+                           autocomplete="name">
                 </div>
                 
+                <!-- Email Field -->
                 <div class="form-group">
-                    <label for="email">Email Address <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           placeholder="your.email@example.com" 
+                           required
+                           autocomplete="email">
                 </div>
                 
+                <!-- Subject Field -->
                 <div class="form-group">
-                    <label for="phone">Contact Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                    <label for="subject">Subject</label>
+                    <input type="text" 
+                           id="subject" 
+                           name="subject" 
+                           placeholder="What's this about?">
                 </div>
                 
+                <!-- Message Field -->
                 <div class="form-group">
                     <label for="message">Message <span class="required">*</span></label>
-                    <textarea id="message" name="message" required rows="6" placeholder="Tell me about your project or inquiry..."></textarea>
+                    <textarea id="message" 
+                              name="message" 
+                              rows="6" 
+                              placeholder="Your message here..." 
+                              required></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Send Message
+                <!-- Optional: reCAPTCHA -->
+                <!-- Uncomment when you add reCAPTCHA -->
+                <!-- <div data-netlify-recaptcha="true"></div> -->
+                
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
                 </button>
             </form>
         </div>
         
+        <!-- Contact Info Sidebar -->
         <div class="contact-info-section">
-            <h2>Connect With Me</h2>
-            <div class="contact-links">
-                <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="contact-link github">
-                    <i class="fab fa-github"></i>
-                    <div class="link-details">
-                        <h3>GitHub</h3>
-                        <p>View my open-source contributions</p>
-                    </div>
-                </a>
-                
-                <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" class="contact-link linkedin">
-                    <i class="fab fa-linkedin"></i>
-                    <div class="link-details">
-                        <h3>LinkedIn</h3>
-                        <p>Connect professionally</p>
-                    </div>
-                </a>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:varun@cswithvarun.com">varun@cswithvarun.com</a>
             </div>
             
-            <div class="response-time">
-                <i class="fas fa-info-circle"></i>
-                <p><strong>Response Time:</strong> I typically respond within 24-48 hours during business days.</p>
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/varun-bhandari5" target="_blank" rel="noopener">Connect with me</a>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <a href="https://github.com/z-varun" target="_blank" rel="noopener">View my code</a>
             </div>
         </div>
     </div>

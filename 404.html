@@ -1,24 +1,28 @@
 ---
-layout: default
-title: 404 - Page Not Found
+layout: page
+title: Page Not Found
 permalink: /404.html
 ---
 
 <div class="error-page">
     <div class="error-content">
         <h1 class="error-code">404</h1>
-        <h2 class="error-title">Page Not Found</h2>
-        <p class="error-message">
-            The page you're looking for seems to have been moved or doesn't exist. 
-            Perhaps it was a security breach? 🔒 Just kidding!
-        </p>
+        <h2>Page Not Found</h2>
+        <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+        
         <div class="error-actions">
-            <a href="{{ '/' | relative_url }}" class="btn btn-primary">
-                <i class="fas fa-home"></i> Go Home
-            </a>
-            <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">
-                <i class="fas fa-newspaper"></i> Read Blog
-            </a>
+            <a href="/" class="btn-primary">Go Home</a>
+            <a href="/blog/" class="btn-secondary">Read Blog</a>
+            <a href="/contact/" class="btn-secondary">Contact Me</a>
+        </div>
+        
+        <div class="search-suggestion">
+            <p>Looking for something? Try these:</p>
+            <ul>
+                <li><a href="/about/">About Me</a></li>
+                <li><a href="/projects/">My Projects</a></li>
+                <li><a href="/blog/">Latest Blog Posts</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -30,30 +34,33 @@ permalink: /404.html
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem;
+    padding: 4rem 2rem;
+}
+
+.error-content {
+    max-width: 700px;
 }
 
 .error-code {
     font-size: 10rem;
-    font-weight: 700;
+    font-weight: 900;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1rem;
+    margin: 0;
     line-height: 1;
 }
 
-.error-title {
+.error-page h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
+    color: var(--text-primary);
 }
 
-.error-message {
-    font-size: 1.25rem;
+.error-page p {
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
 }
 
 .error-actions {
@@ -61,5 +68,31 @@ permalink: /404.html
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.search-suggestion {
+    padding: 2rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.search-suggestion ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search-suggestion a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.search-suggestion a:hover {
+    text-decoration: underline;
 }
 </style>
