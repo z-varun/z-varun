@@ -1,0 +1,164 @@
+---
+layout: page
+title: Projects & Contributions
+subtitle: Security Solutions & Open Source Work
+permalink: /projects/
+custom_css: projects
+---
+
+<div class="projects-page">
+    <!-- Featured Project -->
+    <section class="featured-project" data-animate="fade-in">
+        <div class="project-badge">Featured</div>
+        <div class="project-content">
+            <div class="project-info">
+                <h2>Multi-Cloud Security Automation Framework</h2>
+                <p class="project-description">
+                    Built a comprehensive security automation framework that enforces security policies across AWS, Azure, and GCP using Terraform, OPA, and custom Python scripts. Reduced manual security reviews by 80% and improved compliance posture.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">OPA</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Azure</span>
+                    <span class="tech-tag">GCP</span>
+                </div>
+                <div class="project-metrics">
+                    <div class="metric">
+                        <span class="metric-number">80%</span>
+                        <span class="metric-label">Time Saved</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-number">3</span>
+                        <span class="metric-label">Cloud Platforms</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-number">100%</span>
+                        <span class="metric-label">Compliance</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-visual">
+                <div class="code-snippet">
+                    <pre><code class="language-python">def validate_security_policy(resource):
+    """
+    Validates cloud resources against
+    security policies using OPA
+    """
+    policy_result = opa.evaluate(
+        policy="security/baseline",
+        input_data=resource
+    )
+    
+    if not policy_result.allowed:
+        raise SecurityViolation(
+            policy_result.violations
+        )
+    
+    return policy_result</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-grid-section">
+        <h2 class="section-title">Other Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-animate="fade-up">
+                <div class="project-icon">🔐</div>
+                <h3>Kubernetes Security Scanner</h3>
+                <p>Custom admission controller that scans pods for security misconfigurations before deployment.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                </div>
+                <div class="project-tech-small">
+                    <span>Go</span>
+                    <span>Kubernetes</span>
+                    <span>Falco</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-animate="fade-up" data-delay="100">
+                <div class="project-icon">🛡️</div>
+                <h3>SIEM Integration Pipeline</h3>
+                <p>Real-time security event aggregation pipeline feeding into Splunk and ELK stack.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <div class="project-tech-small">
+                    <span>Python</span>
+                    <span>Kafka</span>
+                    <span>ELK</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-animate="fade-up" data-delay="200">
+                <div class="project-icon">⚙️</div>
+                <h3>CI/CD Security Gate Library</h3>
+                <p>Reusable Jenkins/GitLab CI pipeline templates with security checks built-in.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="project-link"><i class="fas fa-book"></i> Docs</a>
+                </div>
+                <div class="project-tech-small">
+                    <span>Groovy</span>
+                    <span>YAML</span>
+                    <span>Docker</span>
+                </div>
+            </div>
+
+            <div class="project-card" data-animate="fade-up" data-delay="300">
+                <div class="project-icon">🔍</div>
+                <h3>Threat Modeling Toolkit</h3>
+                <p>Interactive threat modeling templates and automated risk assessment tools.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+                <div class="project-tech-small">
+                    <span>Python</span>
+                    <span>React</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source Contributions -->
+    <section class="contributions-section" data-animate="fade-in">
+        <h2 class="section-title">Open Source Contributions</h2>
+        <div class="contributions-list">
+            <div class="contribution-item">
+                <div class="contribution-logo">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <div class="contribution-details">
+                    <h3>Open Policy Agent (OPA)</h3>
+                    <p>Contributed Rego policies for Kubernetes security and documentation improvements</p>
+                    <span class="contribution-stat">5 PRs merged</span>
+                </div>
+            </div>
+            <div class="contribution-item">
+                <div class="contribution-logo">
+                    <i class="fas fa-dharmachakra"></i>
+                </div>
+                <div class="contribution-details">
+                    <h3>Falco (Runtime Security)</h3>
+                    <p>Added custom rules for container runtime security monitoring</p>
+                    <span class="contribution-stat">3 PRs merged</span>
+                </div>
+            </div>
+            <div class="contribution-item">
+                <div class="contribution-logo">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="contribution-details">
+                    <h3>Trivy (Vulnerability Scanner)</h3>
+                    <p>Bug fixes and performance improvements for container scanning</p>
+                    <span class="contribution-stat">2 PRs merged</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

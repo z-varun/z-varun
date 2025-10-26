@@ -1,8 +1,11 @@
+# Google Tag Manager (Safe to commit publicly)
+# google_tag_manager: GTM-5X74QVNG
+
 # Site settings
 title: "Securing the Digital Frontier"
 description: "Senior Security Engineer | 8+ Years DevSecOps, SRE & Cloud Security"
 author: "Varun Bhandari"
-email: your.email@example.com
+email: varun@cswithvarun.com
 url: "https://z-varun.github.io"
 baseurl: ""
 
@@ -12,6 +15,11 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  excerpt_only: true
+
 
 # Exclude from processing
 exclude:
@@ -38,7 +46,34 @@ navigation:
     url: /
   - title: About
     url: /about/
+  - title: Projects
+    url: /projects/
   - title: Blog
     url: /blog/
   - title: Contact
     url: /contact/
+
+# Performance settings
+sass:
+  style: compressed
+
+# Exclude unnecessary files from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore
+  - .git
+
+# Compression
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  startings: []

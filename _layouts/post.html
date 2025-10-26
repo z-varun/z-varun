@@ -12,6 +12,7 @@ layout: default
             <span class="post-author">
                 <i class="far fa-user"></i> {{ site.author }}
             </span>
+            {% include reading-time.html %}
             {% if page.read_time %}
             <span class="read-time">
                 <i class="far fa-clock"></i> {{ page.read_time }} min read
