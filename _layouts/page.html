@@ -2,10 +2,6 @@
 layout: default
 ---
 
-{% if page.custom_css %}
-<link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">
-{% endif %}
-
 <article class="page">
     <header class="page-header">
         <h1 class="page-title">{{ page.title }}</h1>
