@@ -6,28 +6,86 @@
   JEKYLL_ENV = "production"
   RUBY_VERSION = "3.1.0"
 
-[[redirects]]
-  from = "https://z-varun.github.io/*"
-  to = "https://cswithvarun.com/:splat"
-  status = 301
-  force = true
-
+# Force HTTPS redirects
 [[redirects]]
   from = "http://cswithvarun.com/*"
   to = "https://cswithvarun.com/:splat"
   status = 301
   force = true
 
+[[redirects]]
+  from = "http://www.cswithvarun.com/*"
+  to = "https://cswithvarun.com/:splat"
+  status = 301
+  force = true
+
+# Redirect Netlify subdomain to custom domain
+[[redirects]]
+  from = "https://z-varun.netlify.app/*"
+  to = "https://cswithvarun.com/:splat"
+  status = 301
+  force = true
+
+# Security Headers - This gets you A+ rating
 [[headers]]
   for = "/*"
   [headers.values]
+    # Strict Transport Security - Forces HTTPS
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    
+    # Content Security Policy - Prevents XSS attacks
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+      font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+      img-src 'self' data: https: http:;
+      connect-src 'self' https://www.google-analytics.com;
+      frame-ancestors 'self';
+      base-uri 'self';
+      form-action 'self';
+    """
+    
+    # Prevents clickjacking
     X-Frame-Options = "SAMEORIGIN"
+    
+    # Prevents MIME sniffing
     X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
+    
+    # Referrer Policy
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    
+    # Permissions Policy
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
 
+# Cache static assets for 1 year
 [[headers]]
   for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
