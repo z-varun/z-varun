@@ -19,13 +19,17 @@
   status = 301
   force = true
 
-# STRICT SECURITY HEADERS (No unsafe-inline, no unsafe-eval)
+# ============================================
+# PERFECT SECURITY HEADERS
+# ============================================
+
 [[headers]]
   for = "/*"
   [headers.values]
+    # HSTS - Force HTTPS
     Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
     
-    # Perfect CSP - No unsafe directives
+    # CSP - Content Security Policy (Strict)
     Content-Security-Policy = """
       default-src 'self';
       script-src 'self' https://cdnjs.cloudflare.com;
@@ -39,13 +43,48 @@
       upgrade-insecure-requests;
     """
     
+    # Prevent clickjacking
     X-Frame-Options = "SAMEORIGIN"
+    
+    # Prevent MIME sniffing
     X-Content-Type-Options = "nosniff"
+    
+    # Referrer Policy
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+    
+    # Permissions Policy (Feature Policy)
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
+    
+    # NEW: Cross-Origin Policies
+    Cross-Origin-Resource-Policy = "same-origin"
+    Cross-Origin-Embedder-Policy = "require-corp"
+    Cross-Origin-Opener-Policy = "same-origin"
 
-# Cache Control
+# Cache static assets (with CORP)
 [[headers]]
-  for = "/assets/*"
+  for = "/assets/css/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Cross-Origin-Resource-Policy = "same-origin"
+
+# Images can be embedded elsewhere (for social sharing)
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Cross-Origin-Resource-Policy = "cross-origin"
+    Access-Control-Allow-Origin = "*"
+
+# Fonts need cross-origin access
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Cross-Origin-Resource-Policy = "cross-origin"
+    Access-Control-Allow-Origin = "*"
