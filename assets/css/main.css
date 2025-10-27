@@ -1,3 +1,20 @@
+/* ADD at top of file */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    z-index: 10000;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* ================================
    CSS Variables - Dark Theme
    ================================ */
@@ -154,12 +171,20 @@ img {
    ================================ */
 .navbar {
     background-color: var(--bg-secondary);
+    padding: 1rem 0;
     border-bottom: 1px solid var(--border-color);
+    /* ADD THESE LINES */
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    background-color: rgba(21, 27, 59, 0.95);
+    background: rgba(15, 23, 42, 0.95);
+    transition: all 0.3s ease;
+}
+
+/* ADD THIS NEW RULE */
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -246,6 +271,10 @@ img {
 .nav-link:hover,
 .nav-link.active {
     color: var(--color-primary);
+    /* ADD THESE */
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 0.75rem;
+    font-weight: 600;
 }
 
 .nav-link:hover::after,
@@ -1046,5 +1075,117 @@ img {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* ADD at end of navbar section */
+.nav-resume {
+    margin-left: 1rem;
+}
+
+.btn-resume {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    color: white !important;
+}
+
+.btn-resume:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+/* Improved Accessibility - Focus Styles */
+*:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Remove default focus outline but keep for keyboard users */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Keyboard navigation enhancement */
+a:focus-visible,
+button:focus-visible {
+    box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.3);
+}
+
+
+/* Home CTA Section */
+.home-cta {
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(124, 58, 237, 0.1));
+    padding: 4rem 2rem;
+    margin: 4rem 0;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Better Mobile Breakpoints */
+@media (max-width: 480px) {
+    /* Smaller text */
+    html {
+        font-size: 14px;
+    }
+    
+    /* Hide logo text on mobile */
+    .nav-logo .logo-text {
+        display: none;
+    }
+    
+    /* Smaller stats */
+    .stat-number {
+        font-size: 2rem !important;
+    }
+    
+    /* Compact cards */
+    .blog-post-item,
+    .project-card {
+        padding: 1rem !important;
+    }
+    
+    /* Smaller titles */
+    .page-title {
+        font-size: 2rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
     }
 }

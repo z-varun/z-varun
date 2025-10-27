@@ -611,3 +611,18 @@
         font-size: 0.85rem;
     }
 }
+
+/* FORCE SMALL CARDS */
+.blog-post-item {
+    min-height: 350px !important;
+    max-height: 420px !important;
+}
+
+.post-title a {
+    font-size: 1.125rem !important;
+}
+
+.post-excerpt {
+    font-size: 0.8rem !important;
+    -webkit-line-clamp: 2 !important;
+}
