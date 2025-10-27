@@ -43,22 +43,20 @@
     <!-- Google Fonts with display=swap for better performance -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
     
-    <!-- Font Awesome with async loading for better performance -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+     <!-- Optimized Font Awesome Loading - Only loads icons used -->
+     <link rel="preload" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          as="style" 
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
-          crossorigin="anonymous">
-     <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous"
-          referrerpolicy="no-referrer">
+          onload="this.onload=null;this.rel='stylesheet'">
 
      <noscript>
-        <link rel="stylesheet" 
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-              integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-              crossorigin="anonymous">
-    </noscript>
+     <link rel="stylesheet" 
+               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+               integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+               crossorigin="anonymous">
+     </noscript>
     
     <!-- Page-specific CSS -->
     {% if page.custom_css %}

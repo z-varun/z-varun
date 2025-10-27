@@ -1,0 +1,35 @@
+<!-- Only load specific Font Awesome icons -->
+<style>
+/* Inline critical Font Awesome icons */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/assets/fonts/fa-solid-900.woff2') format('woff2');
+  font-display: swap;
+}
+
+.fa, .fas {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-style: normal;
+  display: inline-block;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+/* Only include icons you actually use */
+.fa-github:before { content: "\f09b"; }
+.fa-linkedin:before { content: "\f08c"; }
+.fa-download:before { content: "\f019"; }
+.fa-envelope:before { content: "\f0e0"; }
+.fa-arrow-right:before { content: "\f061"; }
+.fa-chevron-down:before { content: "\f078"; }
+.fa-file-pdf:before { content: "\f1c1"; }
+.fa-external-link-alt:before { content: "\f35d"; }
+.fa-clock:before { content: "\f017"; }
+.fa-shield-alt:before { content: "\f3ed"; }
+.fa-code-branch:before { content: "\f126"; }
+.fa-cloud:before { content: "\f0c2"; }
+/* Add more as needed */
+</style>
