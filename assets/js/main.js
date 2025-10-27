@@ -129,3 +129,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Load Font Awesome stylesheet after preload
+document.addEventListener('DOMContentLoaded', function() {
+    const faPreload = document.getElementById('fontawesome-preload');
+    if (faPreload) {
+        faPreload.onload = null;
+        faPreload.rel = 'stylesheet';
+    }
+});
+
