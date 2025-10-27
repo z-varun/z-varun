@@ -5,7 +5,7 @@
                 <h3>{{ site.title }}</h3>
                 <p>{{ site.description }}</p>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
@@ -14,24 +14,26 @@
                     {% endfor %}
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Connect</h3>
                 <div class="social-links">
                     {% if site.github_username %}
-                    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
+                    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener"
+                        aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                     {% endif %}
                     {% if site.linkedin_username %}
-                    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener"
+                        aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
                     {% endif %}
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
         </div>

@@ -1,7 +1,7 @@
 // Thank You Page Auto-Redirect
-(function() {
+(function () {
     // Redirect to home after 5 seconds
-    setTimeout(function() {
+    setTimeout(function () {
         window.location.href = '/';
     }, 5000);
 })();

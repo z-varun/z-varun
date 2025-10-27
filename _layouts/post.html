@@ -27,25 +27,29 @@ layout: default
         </div>
         {% endif %}
     </header>
-    
+
     <div class="post-content">
         {{ content }}
     </div>
-    
+
     <footer class="post-footer">
         <div class="share-buttons">
             <h4>Share this post</h4>
-            <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}" target="_blank" class="share-btn twitter">
+            <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}"
+                target="_blank" class="share-btn twitter">
                 <i class="fab fa-twitter"></i> Twitter
             </a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank" class="share-btn linkedin">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank"
+                class="share-btn linkedin">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
         </div>
-        
+
         <div class="author-bio">
             <h4>About the Author</h4>
-            <p>{{ site.author.name }} is a Senior Security Engineer with 8+ years of experience in DevSecOps, SRE, and Cloud Security. Passionate about building resilient, secure systems that ensure compliance and reduce risk.</p>
+            <p>{{ site.author.name }} is a Senior Security Engineer with 8+ years of experience in DevSecOps, SRE, and
+                Cloud Security. Passionate about building resilient, secure systems that ensure compliance and reduce
+                risk.</p>
         </div>
     </footer>
 </article>

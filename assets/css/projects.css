@@ -456,7 +456,7 @@
     .project-metrics {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
@@ -466,30 +466,30 @@
     .projects-page {
         padding: 0 1rem;
     }
-    
+
     .featured-project {
         padding: 2rem 1.5rem;
     }
-    
+
     .project-badge {
         position: static;
         display: inline-block;
         margin-bottom: 1.5rem;
     }
-    
+
     .project-metrics {
         grid-template-columns: 1fr;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .skills-showcase {
         grid-template-columns: 1fr;
         padding: 0 1rem;
     }
-    
+
     .impact-stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -499,15 +499,15 @@
     .project-info h2 {
         font-size: 1.5rem;
     }
-    
+
     .project-description {
         font-size: 1rem;
     }
-    
+
     .impact-stats {
         grid-template-columns: 1fr;
     }
-    
+
     .impact-number {
         font-size: 2.5rem;
     }

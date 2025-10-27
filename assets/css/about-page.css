@@ -361,10 +361,13 @@
 
 /* Animations */
 @keyframes pulseGold {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
     }
+
     50% {
         transform: scale(1.05);
         box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
@@ -372,10 +375,13 @@
 }
 
 @keyframes pulseBlue {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
     }
+
     50% {
         transform: scale(1.05);
         box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
@@ -461,8 +467,13 @@
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Achievements Grid */
@@ -674,49 +685,49 @@
         left: 20px;
         transform: translateX(0);
     }
-    
+
     .timeline-item {
         flex-direction: column !important;
         padding-left: 50px;
     }
-    
+
     .timeline-item .timeline-marker {
         left: 20px !important;
         transform: translateX(0) !important;
     }
-    
+
     .timeline-item:hover .timeline-marker {
         transform: translateX(0) scale(1.5) !important;
     }
-    
+
     .timeline-content {
         width: 100% !important;
         margin: 0 !important;
     }
-    
+
     .timeline-start::after,
     .timeline-end::before {
         left: 20px;
     }
-    
+
     .timeline-marker.start-marker,
     .timeline-marker.end-marker {
         width: 40px;
         height: 40px;
     }
-    
+
     .timeline-icon {
         font-size: 1.5rem;
     }
-    
+
     .timeline-label {
         font-size: 0.75rem;
     }
-    
+
     .skills-categories {
         grid-template-columns: 1fr;
     }
-    
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -726,11 +737,11 @@
     .stats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .stat-number {
         font-size: 2.5rem;
     }
-    
+
     .animated-quote p {
         font-size: 1.25rem;
     }
@@ -767,6 +778,7 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -777,6 +789,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -787,6 +800,7 @@
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -798,6 +812,7 @@
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -813,7 +828,8 @@
 .timeline-end {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
+    /* Center horizontally */
     gap: 1.5rem;
     padding: 1rem 0;
     position: relative;
@@ -869,7 +885,8 @@
 .timeline-start::after {
     content: '';
     position: absolute;
-    left: 50%; /* Center position */
+    left: 50%;
+    /* Center position */
     transform: translateX(-50%);
     bottom: -20px;
     width: 3px;
@@ -880,7 +897,8 @@
 .timeline-end::before {
     content: '';
     position: absolute;
-    left: 50%; /* Center position */
+    left: 50%;
+    /* Center position */
     transform: translateX(-50%);
     top: -20px;
     width: 3px;

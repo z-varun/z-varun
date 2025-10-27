@@ -94,7 +94,7 @@
     .filter-search-container {
         padding: 0 1rem;
     }
-    
+
     .tag-search-input {
         font-size: 0.95rem;
     }
@@ -207,6 +207,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -321,19 +322,19 @@
         gap: 0.5rem;
         padding: 0 1rem;
     }
-    
+
     .filter-btn {
         padding: 0.6rem 1rem;
         font-size: 0.875rem;
     }
-    
+
     .filter-dropdown-content {
         right: auto;
         left: 0;
         width: 100%;
         min-width: auto;
     }
-    
+
     .active-filter-display {
         flex-direction: column;
         gap: 0.5rem;
@@ -346,7 +347,7 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .filter-btn,
     .filter-more {
         width: 100%;
@@ -595,16 +596,16 @@
     .blog-container {
         grid-template-columns: 1fr;
     }
-    
+
     .blog-post-item {
         min-height: auto;
         max-height: none;
     }
-    
+
     .post-title a {
         font-size: 1.125rem !important;
     }
-    
+
     .post-excerpt {
         -webkit-line-clamp: 2;
         max-height: 2.8rem;

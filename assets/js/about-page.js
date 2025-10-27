@@ -4,7 +4,7 @@ function animateCounter(element) {
     const duration = 2000;
     const step = target / (duration / 16);
     let current = 0;
-    
+
     const counter = setInterval(() => {
         current += step;
         if (current >= target) {
@@ -35,7 +35,7 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animated');
-            
+
             // Trigger counter animation
             if (entry.target.classList.contains('stat-card')) {
                 const counter = entry.target.querySelector('.stat-number');
@@ -44,7 +44,7 @@ const observer = new IntersectionObserver((entries) => {
                     animateCounter(counter);
                 }
             }
-            
+
             // Trigger skill bar animation
             if (entry.target.classList.contains('skills-meters-section')) {
                 animateSkillBars();
@@ -57,10 +57,10 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('[data-animate]');
     animatedElements.forEach(el => observer.observe(el));
-    
+
     const statCards = document.querySelectorAll('.stat-card');
     statCards.forEach(card => observer.observe(card));
-    
+
     const skillsSection = document.querySelector('.skills-meters-section');
     if (skillsSection) observer.observe(skillsSection);
 });
