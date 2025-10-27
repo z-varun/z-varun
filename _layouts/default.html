@@ -31,7 +31,8 @@
 
      <!-- Favicon -->
      <link rel="icon" type="image/png" href="{{ '/assets/images/icons8-cyber-security-100.png' | relative_url }}">
-     <link rel="apple-touch-icon" type="image/png" href="{{ '/assets/images/icons8-apple-inc-100.png' | relative_url }}">
+     <link rel="apple-touch-icon" type="image/png"
+          href="{{ '/assets/images/icons8-apple-inc-100.png' | relative_url }}">
 
      <!-- ============================================
          UPDATED: Performance Optimizations
@@ -65,11 +66,30 @@
      <link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">
      {% endif %}
 
-     <!-- ============================================
-         NEW: Structured Data for SEO
-     ============================================ -->
 
-     <script src="{{ '/assets/js/structured-data.js' | relative_url }}" defer></script>
+     <!-- Structured Data for SEO - JSON-LD is safe, not executable -->
+     <script type="application/ld+json">
+          {
+               "@context": "https://schema.org",
+               "@type": "Person",
+               "name": "{{ site.author.name }}",
+               "url": "{{ site.url }}",
+               "image": "{{ site.url }}/assets/images/profile.jpg",
+               "jobTitle": "Senior Security Engineer",
+               "description": "{{ site.description }}",
+               "sameAs": [
+                    "https://linkedin.com/in/varunbhandari",
+                    "https://github.com/yourgithub"
+               ],
+               "knowsAbout": [
+                    "DevSecOps",
+                    "Cloud Security",
+                    "Kubernetes Security",
+                    "CI/CD Pipeline Security",
+                    "Infrastructure as Code"
+               ]
+          }
+     </script>
 
 
 </head>
