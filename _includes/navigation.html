@@ -17,10 +17,19 @@
                 </a>
             </li>
             {% endfor %}
-            <li class="nav-item nav-resume">
-                <a href="/assets/resume.pdf" class="nav-link btn-resume" download>
-                    <i class="fas fa-download"></i> Resume
-                </a>
+            <li class="nav-item nav-resume dropdown">
+                <button class="nav-link btn-resume dropdown-toggle" id="resumeDropdown" aria-expanded="false">
+                    <i class="fas fa-file-pdf"></i> Resume
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu" id="resumeMenu">
+                    <a href="/assets/files/VarunBhandari-8Yrs-DevSecOps.pdf" class="dropdown-item" target="_blank">
+                        <i class="fas fa-eye"></i> View Resume
+                    </a>
+                    <a href="/assets/files/VarunBhandari-8Yrs-DevSecOps.pdf" class="dropdown-item" download>
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
             </li>
         </ul>
     </div>

@@ -422,3 +422,5 @@ _site/
 Gemfile.lock
 .idea/
 run.sh
+
+.DS_Store

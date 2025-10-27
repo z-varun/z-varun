@@ -45,3 +45,59 @@ if ('IntersectionObserver' in window) {
     
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 }
+
+// ============================================
+// Resume Dropdown Menu Functionality
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const resumeDropdown = document.getElementById('resumeDropdown');
+    const resumeMenu = document.getElementById('resumeMenu');
+    
+    if (resumeDropdown && resumeMenu) {
+        // Toggle dropdown on button click
+        resumeDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Close any other open dropdowns first
+            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                if (menu !== resumeMenu) {
+                    menu.classList.remove('show');
+                    const btn = menu.previousElementSibling;
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Toggle this dropdown
+            if (isExpanded) {
+                resumeMenu.classList.remove('show');
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                resumeMenu.classList.add('show');
+                this.setAttribute('aria-expanded', 'true');
+            }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!resumeDropdown.contains(e.target) && !resumeMenu.contains(e.target)) {
+                resumeMenu.classList.remove('show');
+                resumeDropdown.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Close dropdown when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                resumeMenu.classList.remove('show');
+                resumeDropdown.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Prevent dropdown from closing when clicking inside menu
+        resumeMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+});
