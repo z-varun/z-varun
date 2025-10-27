@@ -1,3 +1,16 @@
+// ============================================
+// LOAD FONT AWESOME (Replaces inline onload)
+// ============================================
+(function() {
+    // Font Awesome is now loaded directly, no async needed
+    // This function is just a placeholder for any init code
+})();
+
+// ============================================
+// Existing code below...
+// ============================================
+
+
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('navToggle');
