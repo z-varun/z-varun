@@ -121,6 +121,11 @@
      {% if page.url == '/thank-you' or page.url == '/thank-you/' %}
      <script src="{{ '/assets/js/thank-you.js' | relative_url }}"></script>
      {% endif %}
+     <!-- Load reading progress script for blog posts -->
+     {% if page.layout == 'post' %}
+     <script src="/assets/js/reading-progress.js"></script>
+     {% endif %}
+
 </body>
 
 </html>

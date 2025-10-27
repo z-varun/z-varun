@@ -98,18 +98,30 @@ Kubernetes security, and CI/CD pipeline hardening."
             <article class="post-card">
                 <div class="post-card-content">
                     <time class="post-date">{{ post.date | date: "%b %d, %Y" }}</time>
+
                     <h3 class="post-card-title">
-                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
                     </h3>
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-                    <a href="{{ post.url | relative_url }}" class="read-more">
-                        Read More <span class="sr-only">about {{ post.title }}</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+
+                    <!-- Post Meta Footer with Reading Time -->
+                    <div class="post-meta-footer">
+                        <span class="read-time">
+                            <i class="far fa-clock"></i>
+                            {% include reading-time.html content=post.content %}
+                        </span>
+
+                        <a href="{{ post.url }}" class="read-more">
+                            Read More <span class="sr-only">about {{ post.title }}</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </article>
             {% endfor %}
         </div>
+
         <div class="view-all-posts">
             <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">View All Posts</a>
         </div>

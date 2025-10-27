@@ -3,7 +3,6 @@ layout: post
 title: "Demystifying OPA: Using Open Policy Agent for Policy-as-Code in Kubernetes"
 date: 2025-10-15 14:30:00 +0530
 tags: [Kubernetes, OPA, Policy-as-Code, Cloud Security, DevSecOps]
-read_time: 10
 excerpt: "A practical guide to enforcing security policies in Kubernetes using Open Policy Agent and Rego."
 ---
 

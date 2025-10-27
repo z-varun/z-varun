@@ -3,7 +3,6 @@ layout: post
 title: "Why Shifting Left Isn't Enough: Embracing DevSecOps as an Organizational Culture"
 date: 2025-10-20 10:00:00 +0530
 tags: [DevSecOps, Security Culture, Threat Modeling, Security Champions]
-read_time: 8
 excerpt: "Moving beyond tooling to build a security-first culture that accelerates innovation while reducing risk."
 ---
 
