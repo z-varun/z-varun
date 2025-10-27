@@ -1,0 +1,99 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+custom_css: contact
+---
+
+<div class="contact-page">
+    <section class="contact-intro">
+        <h1>Get In Touch</h1>
+        <p>Have a question or want to work together? I'd love to hear from you.</p>
+    </section>
+
+    <div class="contact-container">
+        <div class="contact-form-section">
+            <!-- NETLIFY FORM - CORRECT FORMAT -->
+            <form name="contact" 
+                  method="POST" 
+                  action="/thank-you/"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  class="contact-form">
+                
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Name <span class="required">*</span></label>
+                    <input type="text" 
+                           id="name" 
+                           name="name" 
+                           placeholder="Your Name" 
+                           required>
+                </div>
+                
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           placeholder="your.email@example.com" 
+                           required>
+                </div>
+                
+                <!-- Subject Field -->
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" 
+                           id="subject" 
+                           name="subject" 
+                           placeholder="What's this about?">
+                </div>
+                
+                <!-- Message Field -->
+                <div class="form-group">
+                    <label for="message">Message <span class="required">*</span></label>
+                    <textarea id="message" 
+                              name="message" 
+                              rows="6" 
+                              placeholder="Your message here..." 
+                              required></textarea>
+                </div>
+                
+                <!-- Hidden honeypot for spam protection -->
+                <p hidden>
+                    <label>
+                        Don't fill this out: <input name="bot-field" />
+                    </label>
+                </p>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+        
+        <!-- Contact Info Sidebar -->
+        <div class="contact-info-section">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:varun@cswithvarun.com">varun@cswithvarun.com</a>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/varun-bhandari5" target="_blank" rel="noopener">Connect</a>
+            </div>
+            
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <a href="https://github.com/z-varun" target="_blank" rel="noopener">View Code</a>
+            </div>
+        </div>
+    </div>
+</div>

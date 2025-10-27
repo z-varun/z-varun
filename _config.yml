@@ -1,0 +1,80 @@
+# Google Tag Manager (Safe to commit publicly)
+# google_tag_manager: GTM-5X74QVNG
+
+# Site settings
+title: "Varun Bhandari | Senior Security Engineer"
+description: "Senior Security Engineer with 9+ years of DevSecOps, SRE, and Cloud Security experience. Specializing in Kubernetes, multi-cloud architecture, and secure CI/CD pipelines."
+keywords: "DevSecOps Engineer, Cloud Security Architecture, Kubernetes Security, Multi-Cloud Infrastructure, CI/CD Pipeline Security, Infrastructure as Code"
+email: varun@cswithvarun.com
+url: "https://cswithvarun.com"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+theme: null
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Feed settings
+feed:
+  excerpt_only: true
+
+# Permalink structure for blog posts
+permalink: /blog/:year/:month/:day/:title/
+
+# Author details (for jekyll-seo-tag and posts)
+author:
+  name: "Varun Bhandari"
+  bio: "Senior Security Engineer | 9+ Years DevSecOps | Building secure, resilient cloud infrastructure"
+  location: "India"
+  email: varun@cswithvarun.com
+
+# Social links
+github_username: z-varun
+linkedin_username: varun-bhandari5
+
+# Site navigation
+navigation:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Projects
+    url: /projects/
+  - title: Blog
+    url: /blog/
+  - title: Contact
+    url: /contact/
+
+# Performance settings
+sass:
+  style: compressed
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore
+  - .git
+
+# Defaults for posts and pages
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
