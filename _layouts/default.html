@@ -49,7 +49,7 @@
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
           crossorigin="anonymous"
           media="print"
-          onload="this.media='all'">
+          id="fontawesome-css">
 
      <noscript>
      <link rel="stylesheet" 
@@ -57,7 +57,7 @@
                integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
                crossorigin="anonymous">
      </noscript>
-    
+
     <!-- Page-specific CSS -->
     {% if page.custom_css %}
     <link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">

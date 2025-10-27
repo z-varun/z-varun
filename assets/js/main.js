@@ -10,6 +10,14 @@
 // Existing code below...
 // ============================================
 
+// Load Font Awesome after page load (at the top of main.js)
+(function() {
+    const faCSS = document.getElementById('fontawesome-css');
+    if (faCSS && faCSS.media === 'print') {
+        faCSS.media = 'all';
+    }
+})();
+
 
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -129,13 +137,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-// Load Font Awesome stylesheet after preload
-document.addEventListener('DOMContentLoaded', function() {
-    const faPreload = document.getElementById('fontawesome-preload');
-    if (faPreload) {
-        faPreload.onload = null;
-        faPreload.rel = 'stylesheet';
-    }
-});
-
