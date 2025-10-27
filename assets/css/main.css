@@ -1436,10 +1436,6 @@ button:focus-visible {
         font-size: 14px;
     }
 
-    .nav-logo .logo-text {
-        display: none;
-    }
-
     .hero-title {
         font-size: 1.75rem;
     }
