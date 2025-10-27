@@ -99,7 +99,8 @@ title: Home
                     </h3>
                     <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
                     <a href="{{ post.url | relative_url }}" class="read-more">
-                        Read More <i class="fas fa-arrow-right"></i>
+                        Read More <span class="sr-only">about {{ post.title }}</span>
+                        <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </article>
