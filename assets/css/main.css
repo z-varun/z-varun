@@ -1190,8 +1190,9 @@ button:focus-visible {
     }
 }
 
+
 /* ============================================
-   Resume Dropdown Menu
+   Resume Dropdown Menu - CHROME COMPATIBLE
    ============================================ */
 
 .nav-resume.dropdown {
@@ -1202,13 +1203,15 @@ button:focus-visible {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    color: white;
+    color: white !important;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
+    font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 .btn-resume.dropdown-toggle:hover {
@@ -1217,36 +1220,40 @@ button:focus-visible {
 }
 
 .dropdown-arrow {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     transition: transform 0.3s ease;
+    margin-left: 0.25rem;
 }
 
 .btn-resume.dropdown-toggle[aria-expanded="true"] .dropdown-arrow {
     transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
+/* Dropdown Menu - Chrome Fix */
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 0.75rem);
     right: 0;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
     min-width: 200px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999; /* Very high z-index for Chrome */
     overflow: hidden;
+    display: block; /* Always display:block, control with opacity */
+    pointer-events: none; /* Disable when hidden */
 }
 
 .dropdown-menu.show {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto; /* Enable when shown */
 }
 
 .dropdown-item {
@@ -1258,6 +1265,8 @@ button:focus-visible {
     text-decoration: none;
     transition: all 0.2s ease;
     border-bottom: 1px solid var(--border-color);
+    background: var(--bg-card);
+    font-size: 0.9rem;
 }
 
 .dropdown-item:last-child {
@@ -1274,17 +1283,38 @@ button:focus-visible {
     font-size: 0.9rem;
     width: 1.25rem;
     text-align: center;
+    flex-shrink: 0;
+}
+
+/* Ensure navbar doesn't clip dropdown */
+.navbar {
+    overflow: visible !important;
+}
+
+.nav-menu {
+    overflow: visible !important;
+}
+
+.nav-item {
+    overflow: visible !important;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .dropdown-menu {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
+        right: 0;
+        left: auto;
+        min-width: 180px;
     }
     
-    .dropdown-menu.show {
-        transform: translateX(-50%) translateY(0);
+    .btn-resume.dropdown-toggle {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
     }
+}
+
+/* Fix for Chrome's strict stacking context */
+.nav-resume {
+    z-index: 1000;
+    position: relative;
 }

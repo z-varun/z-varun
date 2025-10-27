@@ -60,7 +60,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// Resume Dropdown Menu Functionality
+// Resume Dropdown Menu - CHROME COMPATIBLE
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -70,10 +70,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (resumeDropdown && resumeMenu) {
         // Toggle dropdown on button click
         resumeDropdown.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation();
+            
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             
-            // Close any other open dropdowns first
+            // Close any other open dropdowns
             document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
                 if (menu !== resumeMenu) {
                     menu.classList.remove('show');
@@ -82,13 +84,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Toggle this dropdown
+            // Toggle this dropdown with small delay for Chrome
             if (isExpanded) {
                 resumeMenu.classList.remove('show');
                 this.setAttribute('aria-expanded', 'false');
             } else {
-                resumeMenu.classList.add('show');
-                this.setAttribute('aria-expanded', 'true');
+                // Force reflow for Chrome
+                resumeMenu.style.display = 'block';
+                void resumeMenu.offsetWidth; // Trigger reflow
+                
+                requestAnimationFrame(() => {
+                    resumeMenu.classList.add('show');
+                    this.setAttribute('aria-expanded', 'true');
+                });
             }
         });
         
@@ -100,17 +108,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close dropdown when pressing Escape key
+        // Close dropdown on Escape
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+            if (e.key === 'Escape' && resumeMenu.classList.contains('show')) {
                 resumeMenu.classList.remove('show');
                 resumeDropdown.setAttribute('aria-expanded', 'false');
+                resumeDropdown.focus();
             }
         });
         
-        // Prevent dropdown from closing when clicking inside menu
+        // Prevent dropdown from closing when clicking inside
         resumeMenu.addEventListener('click', function(e) {
-            e.stopPropagation();
+            // Allow links to work but close dropdown after click
+            if (e.target.tagName === 'A') {
+                setTimeout(() => {
+                    resumeMenu.classList.remove('show');
+                    resumeDropdown.setAttribute('aria-expanded', 'false');
+                }, 100);
+            }
         });
     }
 });
