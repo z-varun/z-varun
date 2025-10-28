@@ -1,0 +1,23 @@
+- emoji: "🌐"
+  title: "Open Source"
+  description: "Contributing to security projects"
+
+- emoji: "🏆"
+  title: "CTF Competitions"
+  description: "Participating in security challenges"
+
+- emoji: "✍️"
+  title: "Technical Writing"
+  description: "Sharing knowledge through blogs"
+
+- emoji: "🎓"
+  title: "Mentoring"
+  description: "Guiding aspiring security engineers"
+
+- emoji: "🧩"
+  title: "Algorithm Challenges"
+  description: "Competitive programming"
+
+- emoji: "🔬"
+  title: "Security Research"
+  description: "Exploring new vulnerabilities"

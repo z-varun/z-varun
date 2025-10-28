@@ -1,0 +1,35 @@
+cloud_infrastructure:
+  title: "Cloud & Infrastructure"
+  skills:
+    - name: "AWS"
+      percentage: 95
+    - name: "Kubernetes"
+      percentage: 90
+    - name: "Terraform"
+      percentage: 92
+    - name: "Azure/GCP"
+      percentage: 85
+
+security_tools:
+  title: "Security Tools"
+  skills:
+    - name: "SAST/DAST/SCA"
+      percentage: 88
+    - name: "OPA/Gatekeeper"
+      percentage: 87
+    - name: "Vault/Secrets Mgmt"
+      percentage: 90
+    - name: "Falco/Runtime Security"
+      percentage: 82
+
+programming:
+  title: "Programming & Scripting"
+  skills:
+    - name: "Python"
+      percentage: 93
+    - name: "Bash/Shell Scripting"
+      percentage: 89
+    - name: "Go"
+      percentage: 78
+    - name: "PowerShell"
+      percentage: 80

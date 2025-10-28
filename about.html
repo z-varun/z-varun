@@ -11,28 +11,15 @@ custom_js: about-page
     <!-- Hero Section with Animated Stats -->
     <section class="about-hero">
         <div class="stats-grid">
-            <div class="stat-card" data-animate="fade-up">
-                <div class="stat-number" data-target="9">0</div>
-                <div class="stat-label">Years of Experience</div>
-                <div class="stat-icon">💼</div>
+            {% for stat in site.data.stats %}
+            <div class="stat-card" data-animate="fade-up" {% if stat.delay> 0 %}data-delay="{{ stat.delay }}"{% endif
+                %}>
+                <div class="stat-number" data-target="{{ stat.number }}">0</div>
+                {% if stat.suffix != "" %}<div class="stat-suffix">{{ stat.suffix }}</div>{% endif %}
+                <div class="stat-label">{{ stat.label }}</div>
+                <div class="stat-icon">{{ stat.icon }}</div>
             </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="100">
-                <div class="stat-number" data-target="6">0</div>
-                <div class="stat-suffix">+</div>
-                <div class="stat-label">Companies Worked With</div>
-                <div class="stat-icon">🏢</div>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="200">
-                <div class="stat-number" data-target="100">0</div>
-                <div class="stat-suffix">+</div>
-                <div class="stat-label">Projects Delivered</div>
-                <div class="stat-icon">🚀</div>
-            </div>
-            <div class="stat-card" data-animate="fade-up" data-delay="300">
-                <div class="stat-number" data-target="200000">0</div>
-                <div class="stat-label">Peak Requests/Second Handled</div>
-                <div class="stat-icon">⚡</div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
@@ -40,41 +27,28 @@ custom_js: about-page
     <section class="philosophy-section" data-animate="fade-in">
         <h2 class="section-title">My Philosophy</h2>
         <div class="philosophy-grid">
+            {% for item in site.data.philosophy %}
             <div class="philosophy-card" data-tilt>
-                <div class="card-icon">🚀</div>
-                <h3>Security as an Enabler</h3>
-                <p>Security should accelerate, not impede, development velocity. I design frameworks that make secure
-                    coding the path of least resistance.</p>
+                <div class="card-icon">{{ item.icon }}</div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
             </div>
-            <div class="philosophy-card" data-tilt>
-                <div class="card-icon">🤖</div>
-                <h3>Automation First</h3>
-                <p>Reducing manual security reviews through intelligent automation, policy-as-code, and continuous
-                    compliance monitoring.</p>
-            </div>
-            <div class="philosophy-card" data-tilt>
-                <h3>Developer Empowerment</h3>
-                <div class="card-icon">👥</div>
-                <p>Creating Security Champions programs that embed security expertise within engineering teams.</p>
-            </div>
-            <div class="philosophy-card" data-tilt>
-                <div class="card-icon">⚖️</div>
-                <h3>Measured Risk</h3>
-                <p>Balancing security rigor with business pragmatism through quantitative risk assessment.</p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
     <!-- Interactive Career Timeline -->
     <section class="timeline-section">
         <h2 class="section-title">Career Journey</h2>
-        <!-- START INDICATOR - BEFORE all timeline items -->
+
+        <!-- START INDICATOR -->
         <div class="timeline-start">
             <div class="timeline-marker start-marker">
                 <span class="timeline-icon">🌟</span>
             </div>
             <div class="timeline-label">Ongoing Journey</div>
         </div>
+
         <div class="timeline">
             <!-- Current Role -->
             <div class="timeline-item" data-animate="slide-right">
@@ -94,7 +68,7 @@ custom_js: about-page
                 </div>
             </div>
 
-            <!-- letsbloom -->
+            <!-- letsbloom - Head of DevSecOps -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -112,6 +86,7 @@ custom_js: about-page
                 </div>
             </div>
 
+            <!-- letsbloom - DevSecOps Lead -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -129,7 +104,7 @@ custom_js: about-page
                 </div>
             </div>
 
-            <!-- CloudCover -->
+            <!-- CloudCover - Technical Lead -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -148,6 +123,8 @@ custom_js: about-page
                     </div>
                 </div>
             </div>
+
+            <!-- CloudCover - Senior DevOps -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -166,6 +143,7 @@ custom_js: about-page
                 </div>
             </div>
 
+            <!-- CloudCover - DevOps Engineer -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
                 <div class="timeline-content">
@@ -221,7 +199,8 @@ custom_js: about-page
                 </div>
             </div>
         </div>
-        <!-- END INDICATOR - AFTER all timeline items -->
+
+        <!-- END INDICATOR -->
         <div class="timeline-end">
             <div class="timeline-marker end-marker">
                 <span class="timeline-icon">🚀</span>
@@ -234,131 +213,24 @@ custom_js: about-page
     <section class="skills-meters-section" data-animate="fade-in">
         <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-categories">
+            {% for category in site.data.skills %}
             <div class="skill-category">
-                <h3>Cloud & Infrastructure</h3>
+                <h3>{{ category[1].title }}</h3>
                 <div class="skill-bars">
+                    {% for skill in category[1].skills %}
                     <div class="skill-bar">
                         <div class="skill-info">
-                            <span>AWS</span>
-                            <span class="skill-percentage">95%</span>
+                            <span>{{ skill.name }}</span>
+                            <span class="skill-percentage">{{ skill.percentage }}%</span>
                         </div>
                         <div class="skill-progress">
-                            <div class="skill-fill" data-width="95"></div>
+                            <div class="skill-fill" data-width="{{ skill.percentage }}"></div>
                         </div>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Kubernetes</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Terraform</span>
-                            <span class="skill-percentage">92%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="92"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Azure/GCP</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="85"></div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-
-            <div class="skill-category">
-                <h3>Security Tools</h3>
-                <div class="skill-bars">
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>SAST/DAST/SCA</span>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="88"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>OPA/Gatekeeper</span>
-                            <span class="skill-percentage">87%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="87"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Vault/Secrets Mgmt</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="90"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Falco/Runtime Security</span>
-                            <span class="skill-percentage">82%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="82"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3>Programming & Scripting</h3>
-                <div class="skill-bars">
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span class="skill-percentage">93%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="93"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Bash/Shell Scripting</span>
-                            <span class="skill-percentage">89%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="89"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>Go</span>
-                            <span class="skill-percentage">78%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="78"></div>
-                        </div>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-info">
-                            <span>PowerShell</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-progress">
-                            <div class="skill-fill" data-width="80"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
@@ -366,83 +238,19 @@ custom_js: about-page
     <section class="achievements-section" data-animate="fade-in">
         <h2 class="section-title">Key Achievements</h2>
         <div class="achievements-grid">
+            {% for achievement in site.data.achievements %}
             <div class="achievement-card" data-hover-lift>
                 <div class="achievement-icon">
-                    <i class="fas fa-code-branch"></i>
+                    <i class="{{ achievement.icon }}"></i>
                 </div>
-                <h3>CI/CD Pipeline Security</h3>
-                <p>Designed and implemented comprehensive security gates across multi-cloud CI/CD pipelines, integrating
-                    SAST, DAST, SCA, container scanning, and artifact signing.</p>
+                <h3>{{ achievement.title }}</h3>
+                <p>{{ achievement.description }}</p>
                 <div class="achievement-metric">
-                    <span class="metric-value">75%</span>
-                    <span class="metric-label">Reduction in Production Vulnerabilities</span>
+                    <span class="metric-value">{{ achievement.metric_value }}</span>
+                    <span class="metric-label">{{ achievement.metric_label }}</span>
                 </div>
             </div>
-
-            <div class="achievement-card" data-hover-lift>
-                <div class="achievement-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Kubernetes Security Hardening</h3>
-                <p>Led initiatives to harden Kubernetes clusters through network policies, Pod Security Standards,
-                    admission controllers (OPA Gatekeeper), and runtime security monitoring.</p>
-                <div class="achievement-metric">
-                    <span class="metric-value">100%</span>
-                    <span class="metric-label">Cluster Compliance Rate</span>
-                </div>
-            </div>
-
-            <div class="achievement-card" data-hover-lift>
-                <div class="achievement-icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <h3>Cloud Security Architecture</h3>
-                <p>Architected secure-by-default landing zones for AWS, Azure, and GCP, implementing guardrails through
-                    Service Control Policies and Organization Policies.</p>
-                <div class="achievement-metric">
-                    <span class="metric-value">3</span>
-                    <span class="metric-label">Cloud Platforms Secured</span>
-                </div>
-            </div>
-
-            <div class="achievement-card" data-hover-lift>
-                <div class="achievement-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Security Champions Program</h3>
-                <p>Established and led Security Champions program across 15+ engineering teams, empowering developers
-                    with security expertise and training.</p>
-                <div class="achievement-metric">
-                    <span class="metric-value">50+</span>
-                    <span class="metric-label">Security Champions Trained</span>
-                </div>
-            </div>
-
-            <div class="achievement-card" data-hover-lift>
-                <div class="achievement-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3>Threat Modeling Framework</h3>
-                <p>Conducted 30+ architecture security reviews and threat modeling sessions for mission-critical
-                    systems, identifying high-risk vulnerabilities pre-production.</p>
-                <div class="achievement-metric">
-                    <span class="metric-value">60%</span>
-                    <span class="metric-label">Reduction in Incident Response Costs</span>
-                </div>
-            </div>
-
-            <div class="achievement-card" data-hover-lift>
-                <div class="achievement-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Security Observability Platform</h3>
-                <p>Built comprehensive security observability platforms integrating SIEM, threat detection, anomaly
-                    detection, and automated incident response workflows.</p>
-                <div class="achievement-metric">
-                    <span class="metric-value">24/7</span>
-                    <span class="metric-label">Real-Time Monitoring</span>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
@@ -450,36 +258,13 @@ custom_js: about-page
     <section class="beyond-work-section" data-animate="fade-in">
         <h2 class="section-title">Beyond Work</h2>
         <div class="interests-grid">
+            {% for interest in site.data.interests %}
             <div class="interest-card">
-                <div class="interest-emoji">🌐</div>
-                <h4>Open Source</h4>
-                <p>Contributing to security projects</p>
+                <div class="interest-emoji">{{ interest.emoji }}</div>
+                <h4>{{ interest.title }}</h4>
+                <p>{{ interest.description }}</p>
             </div>
-            <div class="interest-card">
-                <div class="interest-emoji">🏆</div>
-                <h4>CTF Competitions</h4>
-                <p>Participating in security challenges</p>
-            </div>
-            <div class="interest-card">
-                <div class="interest-emoji">✍️</div>
-                <h4>Technical Writing</h4>
-                <p>Sharing knowledge through blogs</p>
-            </div>
-            <div class="interest-card">
-                <div class="interest-emoji">🎓</div>
-                <h4>Mentoring</h4>
-                <p>Guiding aspiring security engineers</p>
-            </div>
-            <div class="interest-card">
-                <div class="interest-emoji">🧩</div>
-                <h4>Algorithm Challenges</h4>
-                <p>Competitive programming</p>
-            </div>
-            <div class="interest-card">
-                <div class="interest-emoji">🔬</div>
-                <h4>Security Research</h4>
-                <p>Exploring new vulnerabilities</p>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
