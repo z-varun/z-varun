@@ -7,6 +7,34 @@
 @import url('components.css');
 @import url('animations.css');
 
+:root {
+  /* Dark theme colors */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  
+  --color-primary: #3b82f6;
+  --color-secondary: #8b5cf6;
+  
+  --border-color: #334155;
+  --border-radius: 8px;
+}
+
+/* Light theme (if you have a theme toggle) */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  
+  --border-color: #e2e8f0;
+}
+
 /* ================================
    Base Styles & Reset
    ================================ */
