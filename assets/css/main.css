@@ -544,9 +544,9 @@ a:hover {
    ================================ */
 
 .page-header {
-    text-align: center;
-    padding: var(--spacing-3xl) 0;
-    margin-bottom: var(--spacing-3xl);
+  text-align: center;
+  padding: var(--spacing-xl) 0 var(--spacing-lg);  /* Reduced from var(--spacing-3xl) */
+  margin-bottom: var(--spacing-xl);  /* Reduced from var(--spacing-3xl) */
 }
 
 .page-title {
