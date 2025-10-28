@@ -15,6 +15,7 @@ layout: default
     </div>
 </article>
 
-{% if page.custom_js %}
-<script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}" nonce="cswithvarun"></script>
-{% endif %}
+<!-- Search-specific assets -->
+<link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
+<script src="{{ '/assets/js/lunr.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>
