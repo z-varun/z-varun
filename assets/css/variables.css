@@ -6,20 +6,21 @@
     /* Colors - Primary Palette */
     --color-primary: #00d9ff;
     --color-secondary: #7c3aed;
-    --color-danger: #ef4444;
     --color-success: #10b981;
     --color-warning: #f59e0b;
+    --color-danger: #ef4444;
 
     /* Background Colors */
-    --bg-primary: #0a0f1e;
-    --bg-secondary: #0f172a;
-    --bg-tertiary: #1a2332;
-    --bg-card: #1e293b;
+    --bg-primary: #0a0e27;
+    --bg-secondary: #151b3b;
+    --bg-tertiary: #1f2747;
+    --bg-card: #1a2039;
 
     /* Text Colors */
     --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
+    --text-secondary: #e2e8f0;
     --text-muted: #94a3b8;
+    --text-link: #38bdf8;
 
     /* Border & Dividers */
     --border-color: #334155;
@@ -85,3 +86,4 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
 }
+
