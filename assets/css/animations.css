@@ -1,0 +1,191 @@
+/* ================================
+   Animations & Keyframes
+   ================================ */
+
+/* Animation Base Classes */
+[data-animate] {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+[data-animate].animated {
+    opacity: 1;
+}
+
+/* Fade Animations */
+[data-animate="fade-up"].animated {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+[data-animate="fade-in"].animated {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+[data-animate="fade-down"].animated {
+    animation: fadeDown 0.8s ease forwards;
+}
+
+/* Slide Animations */
+[data-animate="slide-right"].animated {
+    animation: slideRight 0.8s ease forwards;
+}
+
+[data-animate="slide-left"].animated {
+    animation: slideLeft 0.8s ease forwards;
+}
+
+/* Keyframe Definitions */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Pulse Animations */
+@keyframes pulseGold {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes pulseBlue {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
+    }
+}
+
+/* Spin Animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dropdown Slide */
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Scale Pulse */
+@keyframes scalePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
