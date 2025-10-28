@@ -1,66 +1,63 @@
-// Counter Animation for Stats
-function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-target'));
-    const duration = 2000;
-    const step = target / (duration / 16);
-    let current = 0;
+// ============================================
+// About Page - Counter & Skill Bar Animations
+// ============================================
 
-    const counter = setInterval(() => {
-        current += step;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(counter);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
+(function() {
+  'use strict';
 
-// Skill Bar Animation
-function animateSkillBars() {
+  // ============================================
+  // Skill Bar Animation
+  // ============================================
+  function animateSkillBars() {
     const skillFills = document.querySelectorAll('.skill-fill');
     skillFills.forEach(fill => {
-        const width = fill.getAttribute('data-width');
-        fill.style.width = width + '%';
+      const width = fill.getAttribute('data-width');
+      fill.style.width = width + '%';
     });
-}
+  }
 
-// Intersection Observer for Scroll Animations
-const observerOptions = {
-    threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
-};
+  // ============================================
+  // Initialize Animations
+  // ============================================
+  function init() {
+    if (!('IntersectionObserver' in window)) return;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
+    const observer = Utils.createObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
 
-            // Trigger counter animation
-            if (entry.target.classList.contains('stat-card')) {
-                const counter = entry.target.querySelector('.stat-number');
-                if (counter && !counter.classList.contains('counted')) {
-                    counter.classList.add('counted');
-                    animateCounter(counter);
-                }
-            }
+        entry.target.classList.add('animated');
 
-            // Trigger skill bar animation
-            if (entry.target.classList.contains('skills-meters-section')) {
-                animateSkillBars();
-            }
+        // Trigger counter animation for stat cards
+        if (entry.target.classList.contains('stat-card')) {
+          const counter = entry.target.querySelector('.stat-number');
+          if (counter && !counter.classList.contains('counted')) {
+            counter.classList.add('counted');
+            const target = parseInt(counter.getAttribute('data-target'));
+            Utils.animateCounter(counter, target);
+          }
         }
+
+        // Trigger skill bar animation
+        if (entry.target.classList.contains('skills-meters-section')) {
+          animateSkillBars();
+        }
+      });
     });
-}, observerOptions);
 
-// Observe all animated elements
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('[data-animate]');
-    animatedElements.forEach(el => observer.observe(el));
-
-    const statCards = document.querySelectorAll('.stat-card');
-    statCards.forEach(card => observer.observe(card));
-
+    // Observe elements
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    document.querySelectorAll('.stat-card').forEach(card => observer.observe(card));
+    
     const skillsSection = document.querySelector('.skills-meters-section');
     if (skillsSection) observer.observe(skillsSection);
-});
+  }
+
+  // Run on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();

@@ -1,19 +1,25 @@
-/* Interactive About Page Styles */
+/* ================================
+   About Page Specific Styles
+   ================================ */
+
 .about-page-interactive {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Animated Stats Section */
+/* ================================
+   Stats Section
+   ================================ */
+
 .about-hero {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-xl);
 }
 
 .stat-card {
@@ -44,13 +50,13 @@
 
 .stat-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2);
+    box-shadow: var(--shadow-xl);
     border-color: var(--color-primary);
 }
 
 .stat-number {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -67,28 +73,31 @@
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
-    margin-top: 1rem;
-    font-weight: 500;
+    margin-top: var(--spacing-md);
+    font-weight: var(--font-weight-medium);
 }
 
 .stat-icon {
     font-size: 2rem;
-    margin-top: 1rem;
+    margin-top: var(--spacing-md);
     opacity: 0.7;
 }
 
-/* Philosophy Cards */
+/* ================================
+   Philosophy Section
+   ================================ */
+
 .philosophy-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .philosophy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-xl);
 }
 
 .philosophy-card {
@@ -96,7 +105,7 @@
     padding: 2.5rem 2rem;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     cursor: pointer;
     position: relative;
 }
@@ -112,7 +121,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-base);
 }
 
 .philosophy-card:hover::after {
@@ -121,50 +130,46 @@
 
 .philosophy-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.15);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    box-shadow: var(--shadow-xl);
 }
 
 .philosophy-card h3 {
     color: var(--text-primary);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .philosophy-card p {
     color: var(--text-muted);
-    line-height: 1.7;
-    font-size: 0.95rem;
+    line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-sm);
 }
 
-/* ============================================
-   TIMELINE WITH ALTERNATING LAYOUT
-   ============================================ */
+/* ================================
+   Timeline Section
+   ================================ */
+
 .timeline-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
-/* Timeline Start/End Markers - Fixed on Left */
 .timeline-start,
 .timeline-end {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
     position: relative;
 }
 
 .timeline-start {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
 }
 
 .timeline-end {
-    margin-top: 2rem;
+    margin-top: var(--spacing-xl);
 }
 
 .timeline-marker.start-marker,
@@ -187,7 +192,7 @@
 }
 
 .end-marker {
-    background: linear-gradient(135deg, #00d9ff, #7c3aed);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
     animation: pulseBlue 2s ease-in-out infinite;
 }
@@ -198,18 +203,18 @@
 }
 
 .timeline-label {
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* Connect start/end to timeline */
 .timeline-start::after {
     content: '';
     position: absolute;
-    left: 25px;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -20px;
     width: 3px;
     height: 30px;
@@ -219,20 +224,19 @@
 .timeline-end::before {
     content: '';
     position: absolute;
-    left: 25px;
+    left: 50%;
+    transform: translateX(-50%);
     top: -20px;
     width: 3px;
     height: 30px;
     background: linear-gradient(to top, rgba(0, 217, 255, 0.5), var(--color-secondary));
 }
 
-/* Timeline container */
 .timeline {
     position: relative;
-    padding: 2rem 0;
+    padding: var(--spacing-xl) 0;
 }
 
-/* Center vertical line */
 .timeline::before {
     content: '';
     position: absolute;
@@ -244,26 +248,22 @@
     transform: translateX(-50%);
 }
 
-/* Timeline items - alternating layout */
 .timeline-item {
     display: flex;
-    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-3xl);
     position: relative;
 }
 
-/* Odd items - Right side */
 .timeline-item:nth-child(odd) {
     flex-direction: row;
     justify-content: flex-start;
 }
 
-/* Even items - Left side */
 .timeline-item:nth-child(even) {
     flex-direction: row-reverse;
     justify-content: flex-start;
 }
 
-/* Timeline markers - centered */
 .timeline-item .timeline-marker {
     width: 20px;
     height: 20px;
@@ -275,7 +275,7 @@
     transform: translateX(-50%);
     z-index: 2;
     box-shadow: 0 0 0 4px var(--bg-secondary), 0 0 0 8px var(--border-color);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
 }
 
 .timeline-item:hover .timeline-marker {
@@ -283,14 +283,13 @@
     box-shadow: 0 0 0 4px var(--bg-secondary), 0 0 0 8px var(--color-primary);
 }
 
-/* Timeline content */
 .timeline-content {
     width: calc(50% - 40px);
     background-color: var(--bg-card);
-    padding: 2rem;
+    padding: var(--spacing-xl);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
@@ -303,21 +302,21 @@
 
 .timeline-content:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
 }
 
 .timeline-date {
     color: var(--color-primary);
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     display: inline-block;
     background-color: rgba(0, 217, 255, 0.1);
     padding: 0.375rem 0.75rem;
-    border-radius: 6px;
+    border-radius: var(--border-radius-sm);
 }
 
 .timeline-content h3 {
@@ -328,10 +327,10 @@
 
 .company-name {
     color: var(--color-primary);
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     margin-bottom: 0.75rem;
-    margin-top: 0.5rem;
+    margin-top: var(--spacing-sm);
 }
 
 .duration-badge {
@@ -339,75 +338,45 @@
     background-color: var(--bg-tertiary);
     color: var(--text-muted);
     padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 1rem;
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-md);
     border: 1px solid var(--border-color);
 }
 
 .timeline-content p {
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
 }
 
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
 }
 
-/* Animations */
-@keyframes pulseGold {
+/* ================================
+   Skills Section
+   ================================ */
 
-    0%,
-    100% {
-        transform: scale(1);
-        box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-    }
-
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
-    }
-}
-
-@keyframes pulseBlue {
-
-    0%,
-    100% {
-        transform: scale(1);
-        box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
-    }
-
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
-    }
-}
-
-/* ============================================
-   SKILLS, ACHIEVEMENTS, ETC.
-   ============================================ */
-
-/* Animated Skill Meters */
 .skills-meters-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .skills-categories {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
+    gap: var(--spacing-2xl);
 }
 
 .skill-category h3 {
     color: var(--text-primary);
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-2xl);
     padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--border-color);
 }
@@ -415,32 +384,32 @@
 .skill-bars {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
 }
 
 .skill-bar {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
 }
 
 .skill-info {
     display: flex;
     justify-content: space-between;
     color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-sm);
 }
 
 .skill-percentage {
     color: var(--color-primary);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .skill-progress {
     height: 10px;
     background-color: var(--bg-tertiary);
-    border-radius: 10px;
+    border-radius: var(--border-radius-full);
     overflow: hidden;
     position: relative;
 }
@@ -448,7 +417,7 @@
 .skill-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    border-radius: 10px;
+    border-radius: var(--border-radius-full);
     width: 0;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -466,31 +435,24 @@
     animation: shimmer 2s infinite;
 }
 
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
+/* ================================
+   Achievements Section
+   ================================ */
 
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* Achievements Grid */
 .achievements-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    gap: var(--spacing-xl);
 }
 
 .achievement-card {
     background-color: var(--bg-card);
-    padding: 2rem;
+    padding: var(--spacing-xl);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     transition: all 0.4s ease;
@@ -506,8 +468,8 @@
 .achievement-icon {
     font-size: 3rem;
     color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
+    margin-bottom: var(--spacing-lg);
+    transition: transform var(--transition-base);
 }
 
 .achievement-card:hover .achievement-icon {
@@ -516,74 +478,61 @@
 
 .achievement-card h3 {
     color: var(--text-primary);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
 }
 
 .achievement-card p {
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-sm);
 }
 
 .achievement-metric {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1.5rem;
+    padding-top: var(--spacing-lg);
     border-top: 1px solid var(--border-color);
 }
 
-.metric-value {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+/* ================================
+   Beyond Work Section
+   ================================ */
 
-.metric-label {
-    color: var(--text-muted);
-    font-size: 0.875rem;
-    text-align: center;
-    margin-top: 0.5rem;
-}
-
-/* Interests Grid */
 .beyond-work-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
 }
 
 .interests-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
 }
 
 .interest-card {
     background-color: var(--bg-card);
-    padding: 2rem 1.5rem;
+    padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
     cursor: pointer;
 }
 
 .interest-card:hover {
     transform: translateY(-5px) scale(1.05);
     border-color: var(--color-primary);
-    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 .interest-emoji {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     display: inline-block;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
 .interest-card:hover .interest-emoji {
@@ -592,30 +541,33 @@
 
 .interest-card h4 {
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-base);
 }
 
 .interest-card p {
     color: var(--text-muted);
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm);
     margin: 0;
 }
 
-/* Animated Quote */
+/* ================================
+   Quote Section
+   ================================ */
+
 .quote-section {
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    padding: var(--spacing-3xl) 0;
+    margin-bottom: var(--spacing-3xl);
     text-align: center;
 }
 
 .animated-quote {
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
-    padding: 3rem 2rem;
+    padding: var(--spacing-2xl) var(--spacing-xl);
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-primary);
     max-width: 800px;
-    margin: 0 auto 2rem;
+    margin: 0 auto var(--spacing-xl);
     position: relative;
 }
 
@@ -640,8 +592,8 @@
 
 .animated-quote footer {
     color: var(--color-primary);
-    margin-top: 1rem;
-    font-size: 1.125rem;
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-lg);
     font-style: normal;
 }
 
@@ -649,14 +601,17 @@
     max-width: 700px;
     margin: 0 auto;
     color: var(--text-secondary);
-    line-height: 1.8;
-    font-size: 1.125rem;
+    line-height: var(--line-height-loose);
+    font-size: var(--font-size-lg);
 }
 
-/* CTA Section */
+/* ================================
+   CTA Section
+   ================================ */
+
 .cta-section {
     text-align: center;
-    padding: 4rem 0;
+    padding: var(--spacing-3xl) 0;
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
@@ -664,22 +619,20 @@
 
 .cta-section h2 {
     font-size: 2.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
     color: var(--text-primary);
 }
 
 .cta-section p {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
 }
 
-.btn-large {
-    padding: 1.125rem 2.5rem;
-    font-size: 1.125rem;
-}
+/* ================================
+   Responsive Design
+   ================================ */
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .timeline::before {
         left: 20px;
@@ -745,163 +698,4 @@
     .animated-quote p {
         font-size: 1.25rem;
     }
-}
-
-/* Animation Classes */
-[data-animate] {
-    opacity: 0;
-    transition: all 0.8s ease;
-}
-
-[data-animate].animated {
-    opacity: 1;
-}
-
-[data-animate="fade-up"].animated {
-    animation: fadeUp 0.8s ease forwards;
-}
-
-[data-animate="fade-in"].animated {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-[data-animate="slide-right"].animated {
-    animation: slideRight 0.8s ease forwards;
-}
-
-[data-animate="slide-left"].animated {
-    animation: slideLeft 0.8s ease forwards;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideRight {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideLeft {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* ============================================
-   TIMELINE START/END MARKERS - CENTERED
-   ============================================ */
-
-/* Timeline Start/End Markers - NOW CENTERED */
-.timeline-start,
-.timeline-end {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Center horizontally */
-    gap: 1.5rem;
-    padding: 1rem 0;
-    position: relative;
-}
-
-.timeline-start {
-    margin-bottom: 2rem;
-}
-
-.timeline-end {
-    margin-top: 2rem;
-}
-
-.timeline-marker.start-marker,
-.timeline-marker.end-marker {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-    flex-shrink: 0;
-}
-
-.start-marker {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
-    animation: pulseGold 2s ease-in-out infinite;
-}
-
-.end-marker {
-    background: linear-gradient(135deg, #00d9ff, #7c3aed);
-    box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
-    animation: pulseBlue 2s ease-in-out infinite;
-}
-
-.timeline-icon {
-    font-size: 1.75rem;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.timeline-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Connect start/end to timeline - CENTERED */
-.timeline-start::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    /* Center position */
-    transform: translateX(-50%);
-    bottom: -20px;
-    width: 3px;
-    height: 30px;
-    background: linear-gradient(to bottom, rgba(255, 215, 0, 0.5), var(--color-primary));
-}
-
-.timeline-end::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    /* Center position */
-    transform: translateX(-50%);
-    top: -20px;
-    width: 3px;
-    height: 30px;
-    background: linear-gradient(to top, rgba(0, 217, 255, 0.5), var(--color-secondary));
 }
