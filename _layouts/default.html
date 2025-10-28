@@ -126,6 +126,9 @@
      {% if page.layout == 'post' %}
      <script src="/assets/js/reading-progress.js" nonce="cswithvarun" nonce="cswithvarun"></script>
      {% endif %}
-
+     
+     {% if page.layout == 'post' %}
+     <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
+     {% endif %}
 </body>
 </html>
