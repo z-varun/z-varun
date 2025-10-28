@@ -1,0 +1,23 @@
+- number: 9
+  label: "Years of Experience"
+  icon: "💼"
+  suffix: ""
+  delay: 0
+
+- number: 6
+  label: "Companies Worked With"
+  icon: "🏢"
+  suffix: "+"
+  delay: 100
+
+- number: 100
+  label: "Projects Delivered"
+  icon: "🚀"
+  suffix: "+"
+  delay: 200
+
+- number: 200000
+  label: "Peak Requests/Second Handled"
+  icon: "⚡"
+  suffix: ""
+  delay: 300
