@@ -58,8 +58,8 @@
     --font-size-lg: 1.125rem;
     --font-size-xl: 1.25rem;
     --font-size-2xl: 1.5rem;
-    --font-size-3xl: 2rem;
-    --font-size-4xl: 2.5rem;
+    --font-size-3xl: 2.5rem;
+    --font-size-4xl: 3rem;
 
     --font-weight-normal: 400;
     --font-weight-medium: 500;
@@ -71,7 +71,10 @@
     --line-height-relaxed: 1.7;
     --line-height-loose: 1.8;
 
+    --max-width: 1200px;
+
     /* Transitions */
+    --transition-speed: 0.3s;
     --transition-fast: 0.15s ease;
     --transition-base: 0.3s ease;
     --transition-slow: 0.5s ease;
@@ -86,4 +89,3 @@
     --z-popover: 1060;
     --z-tooltip: 1070;
 }
-
