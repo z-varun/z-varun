@@ -239,9 +239,7 @@
 }
 
 .share-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
 .share-button {
@@ -270,14 +268,32 @@
   font-size: 1.125rem;
 }
 
-/* Optional: Twitter and LinkedIn specific colors */
-.share-button.twitter {
-  color: #1DA1F2;
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed);
 }
 
-.share-button.linkedin {
-  color: #0077B5;
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
+
+.share-btn.twitter:hover {
+  background-color: #1da1f2;
+  color: white;
+}
+
+.share-btn.linkedin:hover {
+  background-color: #0077b5;
+  color: white;
+}
+
 
 /* ==========================================
    Post Navigation (Previous/Next)
@@ -287,9 +303,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin: 3rem 0;
-  padding-top: 2rem;
+  margin: 2rem 0;
+  padding: 2rem 0;
   border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .post-navigation a {
@@ -351,7 +368,7 @@
   transform: translateX(5px);
 }
 
-.post-navigation a > div {
+.post-navigation a>div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -370,11 +387,6 @@
   font-weight: 600;
   color: var(--text-primary);
   line-height: 1.4;
-}
-
-/* Single column layout when only one nav item */
-.post-navigation:has(a:only-child) {
-  grid-template-columns: 1fr;
 }
 
 /* ==========================================
@@ -476,4 +488,32 @@
   .share-buttons {
     flex-direction: row;
   }
+}
+
+
+/* ================================
+   Reading Progress Bar
+   ================================ */
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), #00ffa3);
+  box-shadow: 0 2px 4px rgba(0, 217, 255, 0.3);
+  z-index: 9999;
+  transition: width 0.2s ease-out;
+  pointer-events: none;
+}
+
+.reading-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  animation: shimmer 2s infinite;
 }

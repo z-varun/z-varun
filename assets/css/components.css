@@ -58,7 +58,6 @@
     margin-bottom: var(--spacing-3xl);
     font-size: var(--font-size-3xl);
     position: relative;
-    color: var(--text-primary);
 }
 
 .section-title::after {

@@ -236,3 +236,18 @@
         font-size: var(--font-size-base);
     }
 }
+
+/* .contact-card .contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+.contact-card h3 { margin: 0; font-size: 1rem; }
+.contact-cta { font-weight: 600; color: var(--color-primary); } */
+.contact-icon svg {
+    width: 45px;
+    height: 45px;
+    fill: currentColor;
+}

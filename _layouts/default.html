@@ -108,7 +108,8 @@
      <script src="{{ '/assets/js/main.js' | relative_url }}" nonce="cswithvarun"></script>
 
      {% if page.custom_js %}
-     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}" nonce="cswithvarun"></script>
+     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"
+          nonce="cswithvarun"></script>
      {% endif %}
 
      {% if page.url == '/blog' or page.url == '/blog/' or page.url == '/blog/index.html' %}
@@ -124,11 +125,13 @@
      {% endif %}
      <!-- Load reading progress script for blog posts -->
      {% if page.layout == 'post' %}
-     <script src="/assets/js/reading-progress.js" nonce="cswithvarun" nonce="cswithvarun"></script>
-     {% endif %}
-     
-     {% if page.layout == 'post' %}
      <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
      {% endif %}
+
+     {% if page.layout == 'post' %}
+     <script src="/assets/js/reading-progress.js" nonce="cswithvarun" nonce="cswithvarun"></script>
+     {% endif %}
+
 </body>
+
 </html>
