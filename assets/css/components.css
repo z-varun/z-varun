@@ -17,6 +17,17 @@
     border-color: var(--color-primary);
 }
 
+/* Shared hover elevation for cards */
+.card-hover-lift {
+  transition: all var(--transition-base);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
 /* Card with Gradient Background */
 .card-gradient {
     background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-tertiary) 100%);
@@ -237,10 +248,18 @@
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: white;
-    border-color: transparent;
-    box-shadow: var(--shadow-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-primary);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .filter-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
 }
 
 /* Form Elements */

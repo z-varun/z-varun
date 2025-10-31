@@ -443,11 +443,6 @@
   .blog-filters {
     gap: var(--spacing-sm);
   }
-
-  .filter-btn {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-xs);
-  }
 }
 
 @media (max-width: 480px) {
