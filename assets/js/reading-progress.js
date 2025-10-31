@@ -25,22 +25,17 @@
             progressBar.style.width = (progress * 100) + '%';
         }
 
-        let ticking = false;
-
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(function () {
-                    updateProgressBar();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
+        // Use shared throttle utility instead of custom ticking guard
+        const throttledUpdate = Utils.throttle(updateProgressBar, 16);
 
         updateProgressBar();
-        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('scroll', throttledUpdate, { passive: true });
         window.addEventListener('resize', updateProgressBar, { passive: true });
     }
 
-    onDomReady(initReadingProgressBar);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initReadingProgressBar);
+    } else {
+        initReadingProgressBar();
+    }
 })();
