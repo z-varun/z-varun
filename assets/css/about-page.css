@@ -48,20 +48,9 @@
     left: 100%;
 }
 
-.stat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary);
-}
-
 .stat-number {
     font-size: 3.5rem;
     font-weight: var(--font-weight-bold);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
     line-height: 1;
 }
 
@@ -126,11 +115,6 @@
 
 .philosophy-card:hover::after {
     opacity: 1;
-}
-
-.philosophy-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl);
 }
 
 .philosophy-card h3 {
@@ -300,12 +284,6 @@
     margin-left: auto;
 }
 
-.timeline-content:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-5px);
-}
-
 .timeline-date {
     color: var(--color-primary);
     font-weight: var(--font-weight-semibold);
@@ -459,12 +437,6 @@
     cursor: pointer;
 }
 
-.achievement-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.2);
-    border-color: var(--color-primary);
-}
-
 .achievement-icon {
     font-size: 3rem;
     color: var(--color-primary);
@@ -520,12 +492,6 @@
     text-align: center;
     transition: all var(--transition-base);
     cursor: pointer;
-}
-
-.interest-card:hover {
-    transform: translateY(-5px) scale(1.05);
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-lg);
 }
 
 .interest-emoji {

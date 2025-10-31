@@ -12,9 +12,9 @@ custom_js: about-page
     <section class="about-hero">
         <div class="stats-grid">
             {% for stat in site.data.stats %}
-            <div class="stat-card" data-animate="fade-up" {% if stat.delay> 0 %}data-delay="{{ stat.delay }}"{% endif
+            <div class="stat-card card-hover-lift" data-animate="fade-up" {% if stat.delay> 0 %}data-delay="{{ stat.delay }}"{% endif
                 %}>
-                <div class="stat-number" data-target="{{ stat.number }}">0</div>
+                <div class="stat-number gradient-text" data-target="{{ stat.number }}">0</div>
                 {% if stat.suffix != "" %}<div class="stat-suffix">{{ stat.suffix }}</div>{% endif %}
                 <div class="stat-label">{{ stat.label }}</div>
                 <div class="stat-icon">{{ stat.icon }}</div>
@@ -28,7 +28,7 @@ custom_js: about-page
         <h2 class="section-title">My Philosophy</h2>
         <div class="philosophy-grid">
             {% for item in site.data.philosophy %}
-            <div class="philosophy-card" data-tilt>
+            <div class="philosophy-card card-hover-lift" data-tilt>
                 <div class="card-icon">{{ item.icon }}</div>
                 <h3>{{ item.title }}</h3>
                 <p>{{ item.description }}</p>
@@ -53,7 +53,7 @@ custom_js: about-page
             <!-- Current Role -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">September 2025 - Present</div>
                     <h3>Senior Security Engineer</h3>
                     <h4 class="company-name">Crypto.com · Singapore</h4>
@@ -71,7 +71,7 @@ custom_js: about-page
             <!-- letsbloom - Head of DevSecOps -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">March 2025 - September 2025</div>
                     <h3>Head of DevSecOps</h3>
                     <h4 class="company-name">letsbloom · India</h4>
@@ -89,7 +89,7 @@ custom_js: about-page
             <!-- letsbloom - DevSecOps Lead -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">November 2022 - March 2025</div>
                     <h3>DevSecOps Lead</h3>
                     <h4 class="company-name">letsbloom · Pune, India</h4>
@@ -107,7 +107,7 @@ custom_js: about-page
             <!-- CloudCover - Technical Lead -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">April 2021 - November 2022</div>
                     <h3>DevOps Technical Lead</h3>
                     <h4 class="company-name">CloudCover · Pune, India</h4>
@@ -127,7 +127,7 @@ custom_js: about-page
             <!-- CloudCover - Senior DevOps -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">January 2020 - March 2021</div>
                     <h3>Senior DevOps Engineer</h3>
                     <h4 class="company-name">CloudCover · Pune, India</h4>
@@ -146,7 +146,7 @@ custom_js: about-page
             <!-- CloudCover - DevOps Engineer -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">January 2019 - December 2019</div>
                     <h3>DevOps Engineer</h3>
                     <h4 class="company-name">CloudCover · Pune, India</h4>
@@ -165,7 +165,7 @@ custom_js: about-page
             <!-- Reflex Software Solutions -->
             <div class="timeline-item" data-animate="slide-right">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">June 2017 - December 2018</div>
                     <h3>DevOps Engineer</h3>
                     <h4 class="company-name">Reflex Software Solutions · Gurgaon, India</h4>
@@ -184,7 +184,7 @@ custom_js: about-page
             <!-- First Role -->
             <div class="timeline-item" data-animate="slide-left">
                 <div class="timeline-marker"></div>
-                <div class="timeline-content">
+                <div class="timeline-content card-hover-lift">
                     <div class="timeline-date">December 2016 - May 2017</div>
                     <h3>DevOps Engineer (Trainee)</h3>
                     <h4 class="company-name">Reflex Software Solutions · Gurugram, India</h4>
@@ -239,7 +239,7 @@ custom_js: about-page
         <h2 class="section-title">Key Achievements</h2>
         <div class="achievements-grid">
             {% for achievement in site.data.achievements %}
-            <div class="achievement-card" data-hover-lift>
+            <div class="achievement-card card-hover-lift" data-hover-lift>
                 <div class="achievement-icon">
                     <i class="{{ achievement.icon }}"></i>
                 </div>
@@ -259,7 +259,7 @@ custom_js: about-page
         <h2 class="section-title">Beyond Work</h2>
         <div class="interests-grid">
             {% for interest in site.data.interests %}
-            <div class="interest-card">
+            <div class="interest-card card-hover-lift">
                 <div class="interest-emoji">{{ interest.emoji }}</div>
                 <h4>{{ interest.title }}</h4>
                 <p>{{ interest.description }}</p>
