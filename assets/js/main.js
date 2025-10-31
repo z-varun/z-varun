@@ -78,18 +78,9 @@
   // ============================================
   // Intersection Observer for Animations
   // ============================================
+
   function initScrollAnimations() {
-    if (!('IntersectionObserver' in window)) return;
-
-    const observer = Utils.createObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-        }
-      });
-    });
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+    initAnimateOnView();
   }
 
   // ============================================

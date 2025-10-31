@@ -108,5 +108,26 @@ window.onDomReady = function (fn) {
   }
 };
 
+
+// Observe [data-animate] once and add .animated when visible
+window.initAnimateOnView = function(options = {}) {
+  if (!('IntersectionObserver' in window)) return;
+  const observed = new WeakSet();
+  const observer = Utils.createObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('animated');
+      observer.unobserve(entry.target);
+    });
+  }, options);
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    if (!observed.has(el)) {
+      observed.add(el);
+      observer.observe(el);
+    }
+  });
+};
+
+
 // Make Utils available globally
 window.Utils = Utils;

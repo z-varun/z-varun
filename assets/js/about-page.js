@@ -46,13 +46,13 @@
     });
 
     // Observe elements
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
     document.querySelectorAll('.stat-card').forEach(card => observer.observe(card));
 
     const skillsSection = document.querySelector('.skills-meters-section');
     if (skillsSection) observer.observe(skillsSection);
   }
 
+  initAnimateOnView();
   onDomReady(init);
 
 })();
