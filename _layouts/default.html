@@ -107,11 +107,6 @@
      <script src="{{ '/assets/js/utils.js' | relative_url }}" nonce="cswithvarun"></script>
      <script src="{{ '/assets/js/main.js' | relative_url }}" nonce="cswithvarun"></script>
 
-     {% if page.custom_js %}
-     <script src="{{ '/assets/js/' | append: page.custom_js | append: '.js' | relative_url }}"
-          nonce="cswithvarun"></script>
-     {% endif %}
-
      {% if page.url == '/blog' or page.url == '/blog/' or page.url == '/blog/index.html' %}
      <script src="{{ '/assets/js/blog.js' | relative_url }}" nonce="cswithvarun"></script>
      {% endif %}
