@@ -23,27 +23,69 @@
     const resumeDropdown = document.getElementById('resumeDropdown');
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const mobileNav = document.getElementById('mobileNav');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
 
-    // Resume dropdown
+    // Resume dropdown with Chrome compatibility
     if (resumeToggle && resumeDropdown) {
       resumeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         e.stopPropagation();
-        Utils.toggle(resumeToggle, 'active');
-        Utils.toggle(resumeDropdown, 'show');
-      });
 
-      Utils.closeOnClickOutside(resumeToggle, resumeDropdown);
+        const isExpanded = resumeToggle.getAttribute('aria-expanded') === 'true';
 
-      // Close on Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && resumeDropdown.classList.contains('show')) {
+        // Close any other open dropdowns
+        document.querySelectorAll('.dropdown-menu.show, .resume-dropdown.show').forEach(otherMenu => {
+          if (otherMenu !== resumeDropdown) {
+            otherMenu.classList.remove('show');
+            const btn = otherMenu.previousElementSibling;
+            if (btn) {
+              btn.classList.remove('active');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+
+        // Toggle this dropdown
+        if (isExpanded) {
           resumeDropdown.classList.remove('show');
           resumeToggle.classList.remove('active');
+          resumeToggle.setAttribute('aria-expanded', 'false');
+        } else {
+          // Apply active state immediately for icon
+          resumeToggle.classList.add('active');
+          resumeToggle.setAttribute('aria-expanded', 'true');
+
+          // Force reflow for Chrome
+          resumeDropdown.style.display = 'block';
+          void resumeDropdown.offsetWidth;
+
+          requestAnimationFrame(() => {
+            resumeDropdown.classList.add('show');
+          });
+        }
+      });
+
+      // Close on click outside
+      Utils.closeOnClickOutside(resumeToggle, resumeDropdown, () => {
+        resumeDropdown.classList.remove('show');
+        resumeToggle.classList.remove('active');
+        resumeToggle.setAttribute('aria-expanded', 'false');
+      });
+
+      // Allow links to work but close dropdown after click
+      resumeDropdown.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          setTimeout(() => {
+            resumeDropdown.classList.remove('show');
+            resumeToggle.classList.remove('active');
+            resumeToggle.setAttribute('aria-expanded', 'false');
+          }, 100);
         }
       });
     }
 
-    // Mobile menu
+    // Mobile menu - mobileMenuToggle version
     if (mobileMenuToggle && mobileNav) {
       mobileMenuToggle.addEventListener('click', () => {
         Utils.toggle(mobileMenuToggle, 'active');
@@ -57,8 +99,50 @@
           mobileMenuToggle.classList.remove('active');
         });
       });
+
+      // Close on click outside
+      Utils.closeOnClickOutside(mobileMenuToggle, mobileNav, () => {
+        mobileNav.classList.remove('show');
+        mobileMenuToggle.classList.remove('active');
+      });
     }
-  }
+
+    // Mobile menu - navToggle version (if different from above)
+    if (navToggle && navMenu && navToggle !== mobileMenuToggle) {
+      navToggle.addEventListener('click', () => {
+        Utils.toggle(navMenu, 'active');
+        Utils.toggle(navToggle, 'active');
+      });
+
+      // Close on click outside
+      Utils.closeOnClickOutside(navToggle, navMenu, () => {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      });
+    }
+
+    // Global Escape key handler for all dropdowns/menus
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        // Close resume dropdown
+        if (resumeDropdown && resumeDropdown.classList.contains('show')) {
+          resumeDropdown.classList.remove('show');
+          resumeToggle.classList.remove('active');
+          resumeToggle.setAttribute('aria-expanded', 'false');
+          resumeToggle.focus();
+        }
+        // Close mobile nav
+        if (mobileNav && mobileNav.classList.contains('show')) {
+          mobileNav.classList.remove('show');
+          mobileMenuToggle.classList.remove('active');
+        }
+        if (navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        }
+      }
+    });
+  } // <-- This was missing
 
   // ============================================
   // Smooth Scroll for Anchor Links
@@ -78,7 +162,6 @@
   // ============================================
   // Intersection Observer for Animations
   // ============================================
-
   function initScrollAnimations() {
     initAnimateOnView();
   }
@@ -95,111 +178,3 @@
 
   onDomReady(init);
 })();
-
-// Mobile Navigation Toggle
-document.addEventListener('DOMContentLoaded', function () {
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function () {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function (event) {
-      const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
-      if (!isClickInsideNav && navMenu.classList.contains('active')) {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      }
-    });
-  }
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-});
-
-
-// ============================================
-// Resume Dropdown Menu - CHROME COMPATIBLE
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function () {
-  const resumeDropdown = document.getElementById('resumeDropdown');
-  const resumeMenu = document.getElementById('resumeMenu');
-
-  if (resumeDropdown && resumeMenu) {
-    // Toggle dropdown on button click
-    resumeDropdown.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-      // Close any other open dropdowns
-      document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-        if (menu !== resumeMenu) {
-          menu.classList.remove('show');
-          const btn = menu.previousElementSibling;
-          if (btn) btn.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Toggle this dropdown with small delay for Chrome
-      if (isExpanded) {
-        resumeMenu.classList.remove('show');
-        this.setAttribute('aria-expanded', 'false');
-      } else {
-        // Force reflow for Chrome
-        resumeMenu.style.display = 'block';
-        void resumeMenu.offsetWidth; // Trigger reflow
-
-        requestAnimationFrame(() => {
-          resumeMenu.classList.add('show');
-          this.setAttribute('aria-expanded', 'true');
-        });
-      }
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (e) {
-      if (!resumeDropdown.contains(e.target) && !resumeMenu.contains(e.target)) {
-        resumeMenu.classList.remove('show');
-        resumeDropdown.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Close dropdown on Escape
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && resumeMenu.classList.contains('show')) {
-        resumeMenu.classList.remove('show');
-        resumeDropdown.setAttribute('aria-expanded', 'false');
-        resumeDropdown.focus();
-      }
-    });
-
-    // Prevent dropdown from closing when clicking inside
-    resumeMenu.addEventListener('click', function (e) {
-      // Allow links to work but close dropdown after click
-      if (e.target.tagName === 'A') {
-        setTimeout(() => {
-          resumeMenu.classList.remove('show');
-          resumeDropdown.setAttribute('aria-expanded', 'false');
-        }, 100);
-      }
-    });
-  }
-});
