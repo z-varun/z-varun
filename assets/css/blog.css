@@ -54,16 +54,6 @@
   max-width: 1000px;
 }
 
-.filter-count {
-  opacity: 0.7;
-  font-size: 0.85em;
-  font-weight: var(--font-weight-semibold);
-}
-
-.filter-btn.active .filter-count {
-  opacity: 0.9;
-}
-
 /* Dropdown Filters */
 .filter-dropdown {
   position: relative;
