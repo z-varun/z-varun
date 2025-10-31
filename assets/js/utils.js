@@ -23,7 +23,7 @@ const Utils = {
    */
   throttle(func, limit = 100) {
     let inThrottle;
-    return function(...args) {
+    return function (...args) {
       if (!inThrottle) {
         func.apply(this, args);
         inThrottle = true;
@@ -71,7 +71,7 @@ const Utils = {
     if (!element) return;
 
     const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
-    
+
     window.scrollTo({
       top: targetPosition,
       behavior: 'smooth'
@@ -95,6 +95,16 @@ const Utils = {
    */
   toggle(element, className = 'show') {
     element.classList.toggle(className);
+  }
+
+};
+
+// Global DOM-ready helper
+window.onDomReady = function (fn) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn, { once: true });
+  } else {
+    fn();
   }
 };
 

@@ -2,7 +2,7 @@
 // Blog Page - Filter & Search Functionality
 // ============================================
 
-(function() {
+(function () {
   'use strict';
 
   let currentFilter = 'all';
@@ -36,7 +36,7 @@
     // Update active states
     elements.filterBtns.forEach(b => b.classList.remove('active'));
     elements.dropdownBtns.forEach(b => b.classList.remove('active'));
-    
+
     if (buttonElement) {
       buttonElement.classList.add('active');
     }
@@ -101,9 +101,9 @@
         const title = post.querySelector('.post-title')?.textContent.toLowerCase() || '';
         const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
 
-        const matches = tags.includes(searchTerm) || 
-                       title.includes(searchTerm) || 
-                       excerpt.includes(searchTerm);
+        const matches = tags.includes(searchTerm) ||
+          title.includes(searchTerm) ||
+          excerpt.includes(searchTerm);
 
         if (matches) {
           post.style.display = 'flex';
@@ -119,7 +119,7 @@
 
       // Show search results count
       elements.searchResultsCount.style.display = 'block';
-      elements.resultsCountText.innerHTML = 
+      elements.resultsCountText.innerHTML =
         `Found <strong>${matchCount}</strong> post${matchCount !== 1 ? 's' : ''} matching "<strong>${searchTerm}</strong>"`;
 
       updateNoResultsMessage(matchCount, `search: ${searchTerm}`);
@@ -171,7 +171,7 @@
   function initEventListeners() {
     // Filter buttons
     elements.filterBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         if (isSearching) clearSearch();
         applyFilter(this.getAttribute('data-filter'), this);
       });
@@ -179,7 +179,7 @@
 
     // Dropdown filter buttons
     elements.dropdownBtns.forEach(btn => {
-      btn.addEventListener('click', function(e) {
+      btn.addEventListener('click', function (e) {
         e.stopPropagation();
         if (isSearching) clearSearch();
         applyFilter(this.getAttribute('data-filter'), this);
@@ -265,11 +265,6 @@
     initEventListeners();
   }
 
-  // Run on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  onDomReady(init);
 
 })();

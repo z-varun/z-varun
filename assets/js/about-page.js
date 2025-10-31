@@ -2,7 +2,7 @@
 // About Page - Counter & Skill Bar Animations
 // ============================================
 
-(function() {
+(function () {
   'use strict';
 
   // ============================================
@@ -48,16 +48,11 @@
     // Observe elements
     document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
     document.querySelectorAll('.stat-card').forEach(card => observer.observe(card));
-    
+
     const skillsSection = document.querySelector('.skills-meters-section');
     if (skillsSection) observer.observe(skillsSection);
   }
 
-  // Run on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  onDomReady(init);
 
 })();

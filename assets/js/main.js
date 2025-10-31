@@ -2,7 +2,7 @@
 // Main JavaScript - Core Functionality
 // ============================================
 
-(function() {
+(function () {
   'use strict';
 
   // ============================================
@@ -65,7 +65,7 @@
   // ============================================
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = this.getAttribute('href');
         if (target && target !== '#') {
@@ -102,49 +102,43 @@
     initScrollAnimations();
   }
 
-  // Run on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
+  onDomReady(init);
 })();
 
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function () {
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-            const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
-            if (!isClickInsideNav && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function () {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (event) {
+      const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+      if (!isClickInsideNav && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+      }
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
 });
 
 
@@ -153,68 +147,68 @@ document.addEventListener('DOMContentLoaded', function () {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function () {
-    const resumeDropdown = document.getElementById('resumeDropdown');
-    const resumeMenu = document.getElementById('resumeMenu');
+  const resumeDropdown = document.getElementById('resumeDropdown');
+  const resumeMenu = document.getElementById('resumeMenu');
 
-    if (resumeDropdown && resumeMenu) {
-        // Toggle dropdown on button click
-        resumeDropdown.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+  if (resumeDropdown && resumeMenu) {
+    // Toggle dropdown on button click
+    resumeDropdown.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
 
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
 
-            // Close any other open dropdowns
-            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-                if (menu !== resumeMenu) {
-                    menu.classList.remove('show');
-                    const btn = menu.previousElementSibling;
-                    if (btn) btn.setAttribute('aria-expanded', 'false');
-                }
-            });
+      // Close any other open dropdowns
+      document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+        if (menu !== resumeMenu) {
+          menu.classList.remove('show');
+          const btn = menu.previousElementSibling;
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
 
-            // Toggle this dropdown with small delay for Chrome
-            if (isExpanded) {
-                resumeMenu.classList.remove('show');
-                this.setAttribute('aria-expanded', 'false');
-            } else {
-                // Force reflow for Chrome
-                resumeMenu.style.display = 'block';
-                void resumeMenu.offsetWidth; // Trigger reflow
+      // Toggle this dropdown with small delay for Chrome
+      if (isExpanded) {
+        resumeMenu.classList.remove('show');
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        // Force reflow for Chrome
+        resumeMenu.style.display = 'block';
+        void resumeMenu.offsetWidth; // Trigger reflow
 
-                requestAnimationFrame(() => {
-                    resumeMenu.classList.add('show');
-                    this.setAttribute('aria-expanded', 'true');
-                });
-            }
+        requestAnimationFrame(() => {
+          resumeMenu.classList.add('show');
+          this.setAttribute('aria-expanded', 'true');
         });
+      }
+    });
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function (e) {
-            if (!resumeDropdown.contains(e.target) && !resumeMenu.contains(e.target)) {
-                resumeMenu.classList.remove('show');
-                resumeDropdown.setAttribute('aria-expanded', 'false');
-            }
-        });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!resumeDropdown.contains(e.target) && !resumeMenu.contains(e.target)) {
+        resumeMenu.classList.remove('show');
+        resumeDropdown.setAttribute('aria-expanded', 'false');
+      }
+    });
 
-        // Close dropdown on Escape
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && resumeMenu.classList.contains('show')) {
-                resumeMenu.classList.remove('show');
-                resumeDropdown.setAttribute('aria-expanded', 'false');
-                resumeDropdown.focus();
-            }
-        });
+    // Close dropdown on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && resumeMenu.classList.contains('show')) {
+        resumeMenu.classList.remove('show');
+        resumeDropdown.setAttribute('aria-expanded', 'false');
+        resumeDropdown.focus();
+      }
+    });
 
-        // Prevent dropdown from closing when clicking inside
-        resumeMenu.addEventListener('click', function (e) {
-            // Allow links to work but close dropdown after click
-            if (e.target.tagName === 'A') {
-                setTimeout(() => {
-                    resumeMenu.classList.remove('show');
-                    resumeDropdown.setAttribute('aria-expanded', 'false');
-                }, 100);
-            }
-        });
-    }
+    // Prevent dropdown from closing when clicking inside
+    resumeMenu.addEventListener('click', function (e) {
+      // Allow links to work but close dropdown after click
+      if (e.target.tagName === 'A') {
+        setTimeout(() => {
+          resumeMenu.classList.remove('show');
+          resumeDropdown.setAttribute('aria-expanded', 'false');
+        }, 100);
+      }
+    });
+  }
 });
