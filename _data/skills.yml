@@ -4,21 +4,21 @@ cloud_infrastructure:
     - name: "AWS"
       percentage: 95
     - name: "Azure"
-      percentage: 95
+      percentage: 70
     - name: "GCP"
-      percentage: 95
+      percentage: 90
     - name: "Distributed Systems"
-      percentage: 95
+      percentage: 70
     - name: "Microservices Architecture"
-      percentage: 95
+      percentage: 90
 
 containerization:
   title: "Containerization & Orchestration"
   skills:
     - name: "Kubernetes"
-      percentage: 95
+      percentage: 80
     - name: "Docker"
-      percentage: 95
+      percentage: 80
     - name: "AKS"
       percentage: 85
     - name: "EKS"
@@ -32,9 +32,9 @@ ci_cd:
     - name: "Github Actions"
       percentage: 95
     - name: "GitlabCI"
-      percentage: 95
+      percentage: 90
     - name: "Jenkins"
-      percentage: 95
+      percentage: 90
     - name: "Azure DevOps (ADO)"
       percentage: 85
 
@@ -42,19 +42,19 @@ security_tools:
   title: "Security & Compliance"
   skills:
     - name: "SRE"
-      percentage: 95
-    - name: "PrismaCloud"
-      percentage: 95
-    - name: "Tines"
       percentage: 85
+    - name: "PrismaCloud"
+      percentage: 80
+    - name: "Tines"
+      percentage: 95
     - name: "Crowdstrike"
       percentage: 75
     - name: "Qualys"
       percentage: 75
     - name: "GCP SCC"
-      percentage: 75
+      percentage: 80
     - name: "CloudArmor"
-      percentage: 75
+      percentage: 80
 
 programming:
   title: "Programming & Scripting"
@@ -62,15 +62,15 @@ programming:
     - name: "Python3"
       percentage: 95
     - name: "Bash"
-      percentage: 95
+      percentage: 70
     - name: "Shell Scripting"
-      percentage: 75
+      percentage: 70
     - name: "JavaScript"
-      percentage: 75
+      percentage: 30
     - name: "HTML"
-      percentage: 75
+      percentage: 30
     - name: "CSS"
-      percentage: 75
+      percentage: 30
 
 
 
@@ -78,17 +78,17 @@ databases:
   title: "Databases & Data"
   skills:
     - name: "CloudSQL"
-      percentage: 95
+      percentage: 90
     - name: "RDS"
-      percentage: 95
+      percentage: 90
     - name: "MySQL"
       percentage: 85
     - name: "PostgreSQL"
       percentage: 85
     - name: "BigQuery"
-      percentage: 75
+      percentage: 70
     - name: "Redis"
-      percentage: 75
+      percentage: 65
 
 observability:
   title: "Observability & Monitoring"
@@ -112,13 +112,13 @@ microsoft:
   title: "Microsoft Ecosystem"
   skills:
     - name: "Defender"
-      percentage: 85
+      percentage: 70
     - name: "Entra"
       percentage: 85
     - name: "Intune"
       percentage: 85
     - name: "Purview"
-      percentage: 85
+      percentage: 60
     - name: "Teams Administration"
       percentage: 85
     - name: "Exchange"
