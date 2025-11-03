@@ -48,7 +48,7 @@
 
 .hero-title .highlight {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline;
@@ -307,7 +307,7 @@
 }
 
 /* Tablets */
-@media (max-width: 968px) {
+@media (width <= 968px) {
   .hero {
     min-height: clamp(450px, 65vh, 700px);
   }
@@ -322,7 +322,7 @@
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .hero {
     padding: clamp(50px, 8vh, 80px) 0 clamp(40px, 6vh, 60px);
     min-height: clamp(400px, 60vh, 600px);
@@ -353,7 +353,7 @@
 }
 
 /* Small Mobile */
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .hero {
     min-height: clamp(350px, 55vh, 500px);
   }

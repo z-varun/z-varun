@@ -186,7 +186,7 @@
 /* Gradient Text */
 .gradient-text {
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
@@ -212,7 +212,7 @@
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-bold);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--spacing-sm);
@@ -255,7 +255,7 @@
 }
 
 /* Mobile responsive */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .filter-btn {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: var(--font-size-xs);

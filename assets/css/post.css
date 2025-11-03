@@ -404,7 +404,7 @@
 
 .author-bio h3 {
   font-size: 1.5rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   color: var(--text-primary);
   font-weight: 600;
 }
@@ -420,7 +420,7 @@
    Mobile Responsive
    ========================================== */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .post {
     padding: 1rem;
   }

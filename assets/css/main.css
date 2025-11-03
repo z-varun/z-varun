@@ -268,7 +268,7 @@ a:hover {
     pointer-events: auto;
 }
 
-.dropdown-menu:not(.active):not(.show) {
+.dropdown-menu:not(.active, .show) {
     pointer-events: none;
 }
 
@@ -510,7 +510,7 @@ a:hover {
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
@@ -591,15 +591,14 @@ a:hover {
    Responsive Design
    ================================ */
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
     :root {
         --font-size-4xl: 2rem;
         --font-size-3xl: 1.75rem;
     }
 }
 
-@media (max-width: 768px) {
-
+@media (width <= 768px) {
     .container,
     .container-wide,
     .container-narrow {
@@ -634,7 +633,7 @@ a:hover {
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     :root {
         --font-size-4xl: 1.5rem;
         --font-size-3xl: 1.25rem;
