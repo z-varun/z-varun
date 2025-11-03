@@ -149,7 +149,7 @@
   // ============================================
   function updateNoResultsMessage(count, filterName) {
     const postsContainer = document.querySelector('.blog-container');
-    let noResults = document.querySelector('.no-results-message');
+    const noResults = document.querySelector('.no-results-message');
 
     if (count === 0 && !noResults && postsContainer) {
       const message = document.createElement('div');

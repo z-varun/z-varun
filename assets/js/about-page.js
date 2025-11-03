@@ -12,7 +12,7 @@
     const skillFills = document.querySelectorAll('.skill-fill');
     skillFills.forEach(fill => {
       const width = fill.getAttribute('data-width');
-      fill.style.width = width + '%';
+      fill.style.width = `${width  }%`;
     });
   }
 
