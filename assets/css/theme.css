@@ -7,7 +7,7 @@
     --bg-card: #ffffff;
     --text-primary: #1a202c;
     --text-secondary: #4a5568;
-    --text-muted: #718096;
+    --text-muted: #000000;
     --color-primary: #00d9ff;
     --color-secondary: #667eea;
     --border-color: #e2e8f0;
@@ -18,16 +18,17 @@
 
 /* Dark Mode */
 [data-theme='dark'] {
-    --bg-primary: #1a202c;
-    --bg-secondary: #2d3748;
-    --bg-tertiary: #374151;
-    --bg-card: #2d3748;
-    --text-primary: #f7fafc;
-    --text-secondary: #e2e8f0;
+    --bg-primary: #0a0e27;
+    --bg-secondary: #151b3b;
+    --bg-tertiary: #1f2747;
+    --bg-card: #1a2039;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
     --text-muted: #a0aec0;
-    --color-primary: #00d9ff;
-    --color-secondary: #9f7aea;
-    --border-color: #4a5568;
+    --color-primary: #3b82f6;
+    --color-secondary: #8b5cf6;
+    --border-color: #334155;
+    --border-radius: 12px;
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
