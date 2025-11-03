@@ -2,7 +2,7 @@
    Homepage Styles
    ================================ */
 
-@import 'variables.css';
+/* Remove the @import 'variables.css'; line - variables are already in theme.css */
 
 .hero {
   min-height: 85vh;
@@ -12,7 +12,7 @@
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .hero::before {
@@ -43,6 +43,7 @@
   margin-bottom: clamp(1rem, 3vh, 2rem);
   line-height: var(--line-height-tight);
   color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .hero-title .highlight {
@@ -53,20 +54,13 @@
   display: inline;
 }
 
-.hero-title .highlight {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-
 .hero-subtitle {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--text-secondary);
   margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-relaxed);
+  transition: color 0.3s ease;
 }
 
 .hero-description {
@@ -75,6 +69,7 @@
   max-width: 900px;
   margin: 0 auto clamp(1.5rem, 4vh, 3rem);
   line-height: var(--line-height-relaxed);
+  transition: color 0.3s ease;
 }
 
 .hero-cta {
@@ -95,11 +90,11 @@
   gap: var(--spacing-sm);
 }
 
-
 .btn-secondary {
   background-color: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
 }
 
 .btn-secondary:hover {
@@ -108,11 +103,11 @@
   transform: translateY(-2px);
 }
 
-
 /* Skills/Competencies Section */
 .skills-section {
   padding: var(--spacing-3xl) 0;
   background-color: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
 .skills-grid {
@@ -169,6 +164,7 @@
   font-size: var(--font-size-xl);
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
+  transition: color 0.3s ease;
 }
 
 .skill-card p {
@@ -176,12 +172,14 @@
   line-height: var(--line-height-relaxed);
   font-size: var(--font-size-base);
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 /* Recent Posts Section */
 .recent-posts-section {
   padding: var(--spacing-3xl) 0;
   background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .posts-grid {
@@ -215,6 +213,7 @@
   font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-md);
   font-weight: var(--font-weight-medium);
+  transition: color 0.3s ease;
 }
 
 .post-card-title {
@@ -238,6 +237,7 @@
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-lg);
   font-size: var(--font-size-base);
+  transition: color 0.3s ease;
 }
 
 .post-meta-footer {
@@ -246,6 +246,7 @@
   align-items: center;
   padding-top: var(--spacing-md);
   border-top: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
 }
 
 .read-more {
@@ -295,6 +296,7 @@
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
   padding: var(--spacing-md) var(--spacing-2xl);
+  transition: all var(--transition-base);
 }
 
 .btn-outline:hover {
@@ -349,7 +351,6 @@
     padding: var(--spacing-xl);
   }
 }
-
 
 /* Small Mobile */
 @media (max-width: 480px) {

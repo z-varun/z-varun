@@ -11,7 +11,7 @@
      <meta name="referrer" content="strict-origin-when-cross-origin">
 
      <!-- ============================================
-         NEW: SEO & Social Media Meta Tags
+         SEO & Social Media Meta Tags
          ============================================ -->
      <!-- Open Graph / Facebook -->
      <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
           href="{{ '/assets/images/icons8-apple-inc-100.png' | relative_url }}">
 
      <!-- ============================================
-         UPDATED: Performance Optimizations
+         Performance Optimizations
          ============================================ -->
      <!-- Preconnect for faster resource loading -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,6 +45,9 @@
 
      <!-- Main CSS -->
      <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+     <!-- Theme CSS -->
+     <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}">
 
      <!-- Google Fonts with display=swap for better performance -->
      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -61,11 +64,19 @@
                crossorigin="anonymous">
      </noscript>
 
+     <!-- Theme Detection Script (Prevents Flash of Unstyled Theme) -->
+     <script nonce="cswithvarun">
+          (function () {
+               const theme = localStorage.getItem('theme-preference') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+               document.documentElement.setAttribute('data-theme', theme);
+          })();
+     </script>
+
      <!-- Page-specific CSS -->
      {% if page.custom_css %}
      <link rel="stylesheet" href="{{ '/assets/css/' | append: page.custom_css | append: '.css' | relative_url }}">
      {% endif %}
-
 
      <!-- Structured Data for SEO - JSON-LD is safe, not executable -->
      <script type="application/ld+json">
@@ -90,7 +101,6 @@
                ]
           }
      </script>
-
 
 </head>
 
@@ -118,14 +128,19 @@
      {% if page.url == '/thank-you' or page.url == '/thank-you/' %}
      <script src="{{ '/assets/js/thank-you.js' | relative_url }}" nonce="cswithvarun"></script>
      {% endif %}
-     <!-- Load reading progress script for blog posts -->
+
+     <!-- Load post-specific styles -->
      {% if page.layout == 'post' %}
      <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
      {% endif %}
 
+     <!-- Load reading progress script for blog posts -->
      {% if page.layout == 'post' %}
-     <script src="/assets/js/reading-progress.js" nonce="cswithvarun" nonce="cswithvarun"></script>
+     <script src="/assets/js/reading-progress.js" nonce="cswithvarun"></script>
      {% endif %}
+
+     <!-- Theme Toggle Script -->
+     <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" nonce="cswithvarun"></script>
 
 </body>
 
