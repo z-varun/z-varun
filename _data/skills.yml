@@ -3,28 +3,25 @@ cloud_infrastructure:
   skills:
     - name: "AWS"
       percentage: 95
-    - name: "Azure"
-      percentage: 70
     - name: "GCP"
       percentage: 90
-    - name: "Distributed Systems"
+    - name: "Azure"
       percentage: 70
-    - name: "Microservices Architecture"
-      percentage: 90
 
 containerization:
   title: "Containerization & Orchestration"
   skills:
+    - name: "EKS"
+      percentage: 90
+    - name: "GKE"
+      percentage: 90
     - name: "Kubernetes"
       percentage: 80
     - name: "Docker"
       percentage: 80
     - name: "AKS"
-      percentage: 85
-    - name: "EKS"
-      percentage: 85
-    - name: "GKE"
-      percentage: 85
+      percentage: 70
+
 
 ci_cd:
   title: "CI/CD & DevOps"
@@ -41,20 +38,20 @@ ci_cd:
 security_tools:
   title: "Security & Compliance"
   skills:
+    - name: "Tines"
+      percentage: 95
     - name: "SRE"
       percentage: 85
     - name: "PrismaCloud"
       percentage: 80
-    - name: "Tines"
-      percentage: 95
-    - name: "Crowdstrike"
-      percentage: 75
-    - name: "Qualys"
-      percentage: 75
     - name: "GCP SCC"
       percentage: 80
     - name: "CloudArmor"
       percentage: 80
+    - name: "Crowdstrike"
+      percentage: 75
+    - name: "Qualys"
+      percentage: 75
 
 programming:
   title: "Programming & Scripting"
@@ -94,36 +91,48 @@ observability:
   title: "Observability & Monitoring"
   skills:
     - name: "CloudWatch"
-      percentage: 75
-    - name: "Datadog"
-      percentage: 75
-    - name: "ELK Stack"
-      percentage: 75
+      percentage: 90
     - name: "Grafana"
+      percentage: 90
+    - name: "Prometheus"
+      percentage: 90
+    - name: "Datadog"
+      percentage: 80
+    - name: "ELK Stack"
       percentage: 75
     - name: "Jaeger"
       percentage: 75
     - name: "Loki"
       percentage: 75
-    - name: "Prometheus"
-      percentage: 75
 
 microsoft:
   title: "Microsoft Ecosystem"
   skills:
-    - name: "Defender"
-      percentage: 70
     - name: "Entra"
       percentage: 85
     - name: "Intune"
       percentage: 85
-    - name: "Purview"
-      percentage: 60
     - name: "Teams Administration"
       percentage: 85
     - name: "Exchange"
       percentage: 85
     - name: "Okta"
+      percentage: 85
+    - name: "Defender"
+      percentage: 70
+    - name: "Purview"
+      percentage: 60
+
+iac:
+  title: "Infrastructure as Code"
+  skills:
+    - name: "Terraform"
+      percentage: 95
+    - name: "Git"
+      percentage: 95
+    - name: "Helm"
+      percentage: 85
+    - name: "Ansible"
       percentage: 85
 
 messaging:
@@ -134,14 +143,10 @@ messaging:
     - name: "RabbitMQ"
       percentage: 75
 
-iac:
-  title: "Infrastructure as Code"
+others:
+  title: "Other Relevant Skills"
   skills:
-    - name: "Terraform"
-      percentage: 95
-    - name: "Helm"
-      percentage: 85
-    - name: "Ansible"
-      percentage: 85
-    - name: "Git"
-      percentage: 95
+    - name: "Microservices Architecture"
+      percentage: 90
+    - name: "Distributed Systems"
+      percentage: 70
