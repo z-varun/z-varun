@@ -245,7 +245,7 @@
    Responsive Design
    ================================ */
 
-@media (max-width: 968px) {
+@media (width <= 968px) {
   .project-metrics {
     grid-template-columns: 1fr;
   }
@@ -255,7 +255,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .projects-page {
     padding: 0 var(--spacing-md);
   }
@@ -279,7 +279,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .featured-project {
     padding: var(--spacing-lg);
   }
@@ -471,7 +471,7 @@
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: var(--font-weight-bold);
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: block;
@@ -512,7 +512,7 @@
    Responsive Enhancements
    ================================ */
 
-@media (max-width: 968px) {
+@media (width <= 968px) {
   .skills-showcase {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
@@ -526,7 +526,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
   .skill-category-box {
     padding: var(--spacing-lg);
   }
@@ -544,8 +544,7 @@
   }
 }
 
-@media (max-width: 480px) {
-
+@media (width <= 480px) {
   .skills-showcase-section,
   .certifications-section,
   .impact-summary {

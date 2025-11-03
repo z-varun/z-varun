@@ -1,13 +1,13 @@
 /* Theme Variables */
 :root {
     /* Light Mode (Default) */
-    --bg-primary: #ffffff;
+    --bg-primary: #fff;
     --bg-secondary: #f8f9fa;
     --bg-tertiary: #f3f4f6;
-    --bg-card: #ffffff;
+    --bg-card: #fff;
     --text-primary: #1a202c;
     --text-secondary: #4a5568;
-    --text-muted: #000000;
+    --text-muted: #000;
     --color-primary: #00d9ff;
     --color-secondary: #667eea;
     --border-color: #e2e8f0;
@@ -78,7 +78,7 @@ body {
 }
 
 /* Responsive navbar layout */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .theme-toggle-nav {
         width: 36px;
         height: 36px;

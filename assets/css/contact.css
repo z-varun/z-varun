@@ -21,7 +21,7 @@
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-md);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
@@ -188,7 +188,7 @@
    Responsive Design
    ================================ */
 
-@media (max-width: 968px) {
+@media (width <= 968px) {
     .contact-container {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
@@ -199,7 +199,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .contact-page {
         padding: 0 var(--spacing-md);
     }
@@ -217,13 +217,13 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
     .contact-info-section {
         flex-direction: column;
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .contact-form-section {
         padding: var(--spacing-lg);
     }
@@ -249,5 +249,5 @@
 .contact-icon svg {
     width: 45px;
     height: 45px;
-    fill: currentColor;
+    fill: currentcolor
 }

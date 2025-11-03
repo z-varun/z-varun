@@ -106,8 +106,8 @@
     border-radius: var(--border-radius);
     padding: 2px;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
     transition: opacity var(--transition-base);
@@ -588,7 +588,7 @@
    Responsive Design
    ================================ */
 
-@media (max-width: 768px) {
+@media (width <= 768px){
     .timeline::before {
         left: 20px;
         transform: translateX(0);
@@ -641,7 +641,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .stats-grid {
         grid-template-columns: 1fr;
     }
