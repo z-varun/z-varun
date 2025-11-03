@@ -3,33 +3,145 @@ cloud_infrastructure:
   skills:
     - name: "AWS"
       percentage: 95
+    - name: "Azure"
+      percentage: 95
+    - name: "GCP"
+      percentage: 95
+    - name: "Distributed Systems"
+      percentage: 95
+    - name: "Microservices Architecture"
+      percentage: 95
+
+containerization:
+  title: "Containerization & Orchestration"
+  skills:
     - name: "Kubernetes"
-      percentage: 90
-    - name: "Terraform"
-      percentage: 92
-    - name: "Azure/GCP"
+      percentage: 95
+    - name: "Docker"
+      percentage: 95
+    - name: "AKS"
+      percentage: 85
+    - name: "EKS"
+      percentage: 85
+    - name: "GKE"
+      percentage: 85
+
+ci_cd:
+  title: "CI/CD & DevOps"
+  skills:
+    - name: "Github Actions"
+      percentage: 95
+    - name: "GitlabCI"
+      percentage: 95
+    - name: "Jenkins"
+      percentage: 95
+    - name: "Azure DevOps (ADO)"
       percentage: 85
 
 security_tools:
-  title: "Security Tools"
+  title: "Security & Compliance"
   skills:
-    - name: "SAST/DAST/SCA"
-      percentage: 88
-    - name: "OPA/Gatekeeper"
-      percentage: 87
-    - name: "Vault/Secrets Mgmt"
-      percentage: 90
-    - name: "Falco/Runtime Security"
-      percentage: 82
+    - name: "SRE"
+      percentage: 95
+    - name: "PrismaCloud"
+      percentage: 95
+    - name: "Tines"
+      percentage: 85
+    - name: "Crowdstrike"
+      percentage: 75
+    - name: "Qualys"
+      percentage: 75
+    - name: "GCP SCC"
+      percentage: 75
+    - name: "CloudArmor"
+      percentage: 75
 
 programming:
   title: "Programming & Scripting"
   skills:
-    - name: "Python"
-      percentage: 93
-    - name: "Bash/Shell Scripting"
-      percentage: 89
-    - name: "Go"
-      percentage: 78
-    - name: "PowerShell"
-      percentage: 80
+    - name: "Python3"
+      percentage: 95
+    - name: "Bash"
+      percentage: 95
+    - name: "Shell Scripting"
+      percentage: 75
+    - name: "JavaScript"
+      percentage: 75
+    - name: "HTML"
+      percentage: 75
+    - name: "CSS"
+      percentage: 75
+
+
+
+databases:
+  title: "Databases & Data"
+  skills:
+    - name: "CloudSQL"
+      percentage: 95
+    - name: "RDS"
+      percentage: 95
+    - name: "MySQL"
+      percentage: 85
+    - name: "PostgreSQL"
+      percentage: 85
+    - name: "BigQuery"
+      percentage: 75
+    - name: "Redis"
+      percentage: 75
+
+observability:
+  title: "Observability & Monitoring"
+  skills:
+    - name: "CloudWatch"
+      percentage: 75
+    - name: "Datadog"
+      percentage: 75
+    - name: "ELK Stack"
+      percentage: 75
+    - name: "Grafana"
+      percentage: 75
+    - name: "Jaeger"
+      percentage: 75
+    - name: "Loki"
+      percentage: 75
+    - name: "Prometheus"
+      percentage: 75
+
+microsoft:
+  title: "Microsoft Ecosystem"
+  skills:
+    - name: "Defender"
+      percentage: 85
+    - name: "Entra"
+      percentage: 85
+    - name: "Intune"
+      percentage: 85
+    - name: "Purview"
+      percentage: 85
+    - name: "Teams Administration"
+      percentage: 85
+    - name: "Exchange"
+      percentage: 85
+    - name: "Okta"
+      percentage: 85
+
+messaging:
+  title: "Messaging & Queueing"
+  skills:
+    - name: "Kafka"
+      percentage: 75
+    - name: "RabbitMQ"
+      percentage: 75
+
+iac:
+  title: "Infrastructure as Code"
+  skills:
+    - name: "Terraform"
+      percentage: 95
+    - name: "Helm"
+      percentage: 85
+    - name: "Ansible"
+      percentage: 85
+    - name: "Git"
+      percentage: 95

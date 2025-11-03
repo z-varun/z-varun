@@ -4,7 +4,7 @@
   suffix: ""
   delay: 0
 
-- number: 6
+- number: 4
   label: "Companies Worked With"
   icon: "🏢"
   suffix: "+"
@@ -16,8 +16,8 @@
   suffix: "+"
   delay: 200
 
-- number: 200000
+- number: 100000
   label: "Peak Requests/Second Handled"
   icon: "⚡"
   suffix: ""
-  delay: 300
+  delay: 30
