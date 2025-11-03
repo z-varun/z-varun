@@ -8,6 +8,28 @@ cloud_infrastructure:
     - name: "Azure"
       percentage: 70
 
+programming:
+  title: "Programming & Scripting"
+  skills:
+    - name: "Python3"
+      percentage: 95
+    - name: "Shell Scripting"
+      percentage: 70
+    - name: "JavaScript"
+      percentage: 30
+
+ci_cd:
+  title: "CI/CD & DevOps"
+  skills:
+    - name: "Github Actions"
+      percentage: 95
+    - name: "GitlabCI"
+      percentage: 90
+    - name: "Jenkins"
+      percentage: 90
+    - name: "Azure DevOps (ADO)"
+      percentage: 85
+
 containerization:
   title: "Containerization & Orchestration"
   skills:
@@ -22,18 +44,31 @@ containerization:
     - name: "AKS"
       percentage: 70
 
-
-ci_cd:
-  title: "CI/CD & DevOps"
+iac:
+  title: "Infrastructure as Code"
   skills:
-    - name: "Github Actions"
+    - name: "Terraform"
       percentage: 95
-    - name: "GitlabCI"
-      percentage: 90
-    - name: "Jenkins"
-      percentage: 90
-    - name: "Azure DevOps (ADO)"
+    - name: "Git"
+      percentage: 95
+    - name: "Helm"
       percentage: 85
+    - name: "Ansible"
+      percentage: 85
+
+databases:
+  title: "Databases & Data"
+  skills:
+    - name: "CloudSQL"
+      percentage: 90
+    - name: "RDS"
+      percentage: 90
+    - name: "MySQL"
+      percentage: 85
+    - name: "PostgreSQL"
+      percentage: 85
+    - name: "BigQuery"
+      percentage: 70
 
 security_tools:
   title: "Security & Compliance"
@@ -53,32 +88,6 @@ security_tools:
     - name: "Qualys"
       percentage: 75
 
-programming:
-  title: "Programming & Scripting"
-  skills:
-    - name: "Python3"
-      percentage: 95
-    - name: "Shell Scripting"
-      percentage: 70
-    - name: "JavaScript"
-      percentage: 30
-
-
-databases:
-  title: "Databases & Data"
-  skills:
-    - name: "CloudSQL"
-      percentage: 90
-    - name: "RDS"
-      percentage: 90
-    - name: "MySQL"
-      percentage: 85
-    - name: "PostgreSQL"
-      percentage: 85
-    - name: "BigQuery"
-      percentage: 70
-    - name: "Redis"
-      percentage: 65
 
 observability:
   title: "Observability & Monitoring"
@@ -116,26 +125,6 @@ microsoft:
     - name: "Purview"
       percentage: 60
 
-iac:
-  title: "Infrastructure as Code"
-  skills:
-    - name: "Terraform"
-      percentage: 95
-    - name: "Git"
-      percentage: 95
-    - name: "Helm"
-      percentage: 85
-    - name: "Ansible"
-      percentage: 85
-
-messaging:
-  title: "Messaging & Queueing"
-  skills:
-    - name: "Kafka"
-      percentage: 75
-    - name: "RabbitMQ"
-      percentage: 75
-
 others:
   title: "Other Relevant Skills"
   skills:
@@ -149,3 +138,13 @@ others:
       percentage: 30
     - name: "Bash"
       percentage: 70
+    - name: "Redis"
+      percentage: 65
+
+messaging:
+  title: "Messaging & Queueing"
+  skills:
+    - name: "Kafka"
+      percentage: 75
+    - name: "RabbitMQ"
+      percentage: 75
