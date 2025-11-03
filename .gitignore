@@ -424,3 +424,11 @@ Gemfile.lock
 run.sh
 
 .DS_Store
+
+.eslintignore
+.prettierrc.json
+.stylelintrc.json
+eslint.config.js
+package-lock.json
+package.json
+.prettierignore

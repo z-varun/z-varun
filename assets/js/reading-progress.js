@@ -22,7 +22,7 @@
             const readingProgress = (scrollTop - articleTop) / (articleEnd - articleTop);
             const progress = Math.max(0, Math.min(1, readingProgress));
 
-            progressBar.style.width = (progress * 100) + '%';
+            progressBar.style.width = `${progress * 100  }%`;
         }
 
         // Use shared throttle utility instead of custom ticking guard
