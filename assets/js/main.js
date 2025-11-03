@@ -21,24 +21,31 @@
   function initNavigation() {
     const resumeToggle = document.getElementById('resumeToggle');
     const resumeDropdown = document.getElementById('resumeDropdown');
-    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenuToggle = document.getElementById('navToggle'); // Use navToggle
     const mobileNav = document.getElementById('mobileNav');
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
-    // Resume dropdown with Chrome compatibility
+    // ========================================
+    // Resume Dropdown Handler
+    // ========================================
     if (resumeToggle && resumeDropdown) {
       resumeToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        const isExpanded = resumeToggle.getAttribute('aria-expanded') === 'true';
+        const isExpanded =
+          resumeToggle.getAttribute('aria-expanded') === 'true';
 
         // Close any other open dropdowns
-        document.querySelectorAll('.dropdown-menu.show, .resume-dropdown.show').forEach(otherMenu => {
+        document.querySelectorAll(
+          '.dropdown-menu.active, .dropdown-menu.show'
+        ).forEach((otherMenu) => {
           if (otherMenu !== resumeDropdown) {
-            otherMenu.classList.remove('show');
-            const btn = otherMenu.previousElementSibling;
+            otherMenu.classList.remove('active', 'show');
+            const btn = otherMenu.closest('.dropdown')?.querySelector(
+              'button'
+            );
             if (btn) {
               btn.classList.remove('active');
               btn.setAttribute('aria-expanded', 'false');
@@ -46,114 +53,150 @@
           }
         });
 
-        // Toggle this dropdown
+        // Toggle current dropdown
         if (isExpanded) {
-          resumeDropdown.classList.remove('show');
+          // Close dropdown
+          resumeDropdown.classList.remove('show', 'active');
           resumeToggle.classList.remove('active');
           resumeToggle.setAttribute('aria-expanded', 'false');
+
+          // Wait for transition to complete before hiding
+          setTimeout(() => {
+            if (!resumeDropdown.classList.contains('show')) {
+              resumeDropdown.style.display = 'none';
+            }
+          }, 300); // Match your CSS transition time
         } else {
-          // Apply active state immediately for icon
+          // Open dropdown
+          resumeDropdown.style.display = 'block';
           resumeToggle.classList.add('active');
           resumeToggle.setAttribute('aria-expanded', 'true');
 
-          // Force reflow for Chrome
-          resumeDropdown.style.display = 'block';
-          void resumeDropdown.offsetWidth;
+          // Trigger reflow for CSS animations
+          void resumeDropdown.offsetHeight;
 
-          requestAnimationFrame(() => {
-            resumeDropdown.classList.add('show');
-          });
+          // Add show class for animation
+          resumeDropdown.classList.add('show', 'active');
         }
       });
 
       // Close on click outside
-      Utils.closeOnClickOutside(resumeToggle, resumeDropdown, () => {
-        resumeDropdown.classList.remove('show');
-        resumeToggle.classList.remove('active');
-        resumeToggle.setAttribute('aria-expanded', 'false');
-      });
-
-      // Allow links to work but close dropdown after click
-      resumeDropdown.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          setTimeout(() => {
-            resumeDropdown.classList.remove('show');
+      document.addEventListener('click', (e) => {
+        if (
+          !resumeToggle.contains(e.target) &&
+          !resumeDropdown.contains(e.target)
+        ) {
+          if (resumeDropdown.classList.contains('show')) {
+            resumeDropdown.classList.remove('show', 'active');
             resumeToggle.classList.remove('active');
             resumeToggle.setAttribute('aria-expanded', 'false');
-          }, 100);
+
+            setTimeout(() => {
+              resumeDropdown.style.display = 'none';
+            }, 300);
+          }
+        }
+      });
+
+      // Close dropdown when clicking links
+      resumeDropdown.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          resumeDropdown.classList.remove('show', 'active');
+          resumeToggle.classList.remove('active');
+          resumeToggle.setAttribute('aria-expanded', 'false');
+
+          setTimeout(() => {
+            resumeDropdown.style.display = 'none';
+          }, 300);
+        });
+      });
+
+      // Keyboard: Escape key closes dropdown
+      document.addEventListener('keydown', (e) => {
+        if (
+          e.key === 'Escape' &&
+          resumeDropdown.classList.contains('show')
+        ) {
+          resumeDropdown.classList.remove('show', 'active');
+          resumeToggle.classList.remove('active');
+          resumeToggle.setAttribute('aria-expanded', 'false');
+          resumeToggle.focus();
+
+          setTimeout(() => {
+            resumeDropdown.style.display = 'none';
+          }, 300);
         }
       });
     }
 
-    // Mobile menu - mobileMenuToggle version
-    if (mobileMenuToggle && mobileNav) {
-      mobileMenuToggle.addEventListener('click', () => {
-        Utils.toggle(mobileMenuToggle, 'active');
-        Utils.toggle(mobileNav, 'show');
+    // ========================================
+    // Mobile Menu Handler
+    // ========================================
+    if (navToggle && mobileNav) {
+      navToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isActive = mobileNav.classList.contains('active');
+
+        if (isActive) {
+          mobileNav.classList.remove('active');
+          navToggle.classList.remove('active');
+        } else {
+          mobileNav.classList.add('active');
+          navToggle.classList.add('active');
+        }
       });
 
-      // Close mobile menu when clicking on links
-      mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
+      // Close mobile menu when clicking links
+      mobileNav.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-          mobileNav.classList.remove('show');
-          mobileMenuToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          navToggle.classList.remove('active');
         });
       });
 
       // Close on click outside
-      Utils.closeOnClickOutside(mobileMenuToggle, mobileNav, () => {
-        mobileNav.classList.remove('show');
-        mobileMenuToggle.classList.remove('active');
-      });
-    }
-
-    // Mobile menu - navToggle version (if different from above)
-    if (navToggle && navMenu && navToggle !== mobileMenuToggle) {
-      navToggle.addEventListener('click', () => {
-        Utils.toggle(navMenu, 'active');
-        Utils.toggle(navToggle, 'active');
-      });
-
-      // Close on click outside
-      Utils.closeOnClickOutside(navToggle, navMenu, () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-      });
-    }
-
-    // Global Escape key handler for all dropdowns/menus
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        // Close resume dropdown
-        if (resumeDropdown && resumeDropdown.classList.contains('show')) {
-          resumeDropdown.classList.remove('show');
-          resumeToggle.classList.remove('active');
-          resumeToggle.setAttribute('aria-expanded', 'false');
-          resumeToggle.focus();
-        }
-        // Close mobile nav
-        if (mobileNav && mobileNav.classList.contains('show')) {
-          mobileNav.classList.remove('show');
-          mobileMenuToggle.classList.remove('active');
-        }
-        if (navMenu && navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
+      document.addEventListener('click', (e) => {
+        if (
+          !navToggle.contains(e.target) &&
+          !mobileNav.contains(e.target) &&
+          mobileNav.classList.contains('active')
+        ) {
+          mobileNav.classList.remove('active');
           navToggle.classList.remove('active');
         }
-      }
-    });
-  } // <-- This was missing
+      });
+
+      // Keyboard: Escape closes mobile menu
+      document.addEventListener('keydown', (e) => {
+        if (
+          e.key === 'Escape' &&
+          mobileNav.classList.contains('active')
+        ) {
+          mobileNav.classList.remove('active');
+          navToggle.classList.remove('active');
+        }
+      });
+    }
+  }
 
   // ============================================
   // Smooth Scroll for Anchor Links
   // ============================================
   function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
+        // Skip smooth scroll if it's the resume dropdown toggle
+        if (this.id === 'resumeToggle') return;
+
         e.preventDefault();
         const target = this.getAttribute('href');
         if (target && target !== '#') {
-          Utils.smoothScrollTo(target, 80);
+          const element = document.querySelector(target);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     });
@@ -163,7 +206,21 @@
   // Intersection Observer for Animations
   // ============================================
   function initScrollAnimations() {
-    initAnimateOnView();
+    // If you have a separate function for this
+    if (typeof initAnimateOnView === 'function') {
+      initAnimateOnView();
+    }
+  }
+
+  // ============================================
+  // DOM Ready Helper
+  // ============================================
+  function onDomReady(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback);
+    } else {
+      callback();
+    }
   }
 
   // ============================================
